@@ -1,0 +1,93 @@
+Title of Project (do not exceed 100 characters): Beyond the Label: Measuring Real-World Leadership in Feminist Diplomacy
+
+Proposed Outline of the Project
+Introduction
+Briefly describe what your creative project/research essay is about and its significance to the four GEx Paris themes. Include a research question in the introduction.
+
+I propose an interactive website that lets users simulate the dilemmas and consequences that policymakers face as France steps into the role of global feminist diplomacy leader after Sweden discontinued its pioneering policy. Through data-driven scenarios and dynamic visual feedback, the project turns abstract policy debates into vivid, participatory experiences that help users understand the real-world complexities behind the headlines, offering a direct comparison between France’s current strategy and Sweden’s now-ended approach.
+
+The project relates to all four GEx Paris themes as follows:
+
+Art: Inspired by Prune Nourry, whose sculptures turn hidden gender issues into visible forms.
+
+Culture: France and Sweden both deploy feminist diplomacy as part of their national cultural identities, much like a visual logo or other public presences. For example, France’s Marianne statue was lit pink for International Women’s Day 2024.
+
+Diplomacy: There is a direct relationship, since this project focuses on feminist diplomacy in Sweden and France.
+
+Social Innovation: This project aims to build an interactive, scroll-driven website so that the general population, and perhaps students, can understand the current situation, and feel more connected to feminist diplomacy.
+
+Research Question: How credible is France's leadership in global feminist diplomacy following Sweden's withdrawal, and what contradictions exist between France's official commitments and its practical implementation in terms of funding, institutional depth, and international influence?
+
+
+Objective / Motivation
+Briefly describe your personal objectives and motivation; why did you choose to do this project (e.g. which experience inspired you to do this?)
+
+The topic of Feminist Diplomacy was not something I had always planned to explore. Initially, I had decided to work on colonialism, and how it is represented in France. However, over the course of the programme, as I heard more about women’s health, had the opportunity to talk to Prune Nourry, and sit at the World Economic Forum, I walked out of the programme with a desire to do something from my side. Having grown up in a patriarchal household where women had little voice in family decisions, I began to picture that imbalance on a national, even global, scale. I reflected on Prune Nourry’s question: “What resonates most with you?” These experiences, along with my past experiences with gender inequality, inspired me to create a project that truly resonates with me: Feminist Diplomacy.
+
+Research Methodology
+Describe how your data was collected over the course of your stay in Brussels / Paris, and what data was collected.
+
+During the programme, I initially gathered exhibition notes and brochures on France’s colonial collections (Africa Museum, Musée de l’Immigration). Towards the end of the programme, however, a fireside chat with Prune Nourry and a World Economic Forum panel on women’s health pushed me toward feminist diplomacy. From that point on, my data plan shifted:
+•	Field-generated leads
+o	World Economic Forum, Geneva: slides and references to the Global Women Alliance Reports and women’s-health financing gaps.
+o	Fireside chat with Prune Nourry, Paris: pointers to cultural case studies that link policy and women.
+•	Expert interviews
+o	Schedule email / Zoom interview with Mr Efraim Gómez, who drafted Sweden’s feminist foreign policy.
+o	Aim to interview people in relevant positions in organizations such as UN Women.
+•	Document and data analysis (post-trip primary source work), some of which include:
+o	France: International Strategy for a Feminist Foreign Policy 2025-2030.
+o	Sweden Handbook: Sweden’s Feminist Foreign Policy 2014-2022.
+
+Format / Medium
+Describe in detail what you will use to create your project (text, canvas, acrylic, Photoshop, etc.) and what form it will ultimately take (video, short story etc.).
+
+Here are general guidelines for different mediums, though you can propose new mediums subject to approval:
+●	Video essay: An argumentative piece following the format of an essay (thesis, main points, conclusion), typically including a voice-over narrating the argument accompanied by supporting video footage. Should be at least 8 minutes long.
+●	Film: A film should creatively illustrate a narrative that drives the thesis. Should be at least 5 minutes long.
+●	Photograph storyboard: A photograph storyboard should creatively illustrate a narrative that drives the thesis. Should contain at least 15 photographs.
+●	Visual art piece(s): A visual art piece or series should creatively illustrate a narrative that drives the thesis. Should take the form of a digital or physical piece(s) of artwork that may incorporate multiple forms of media.
+●	Dance: An interpretative dance should creatively illustrate a narrative that drives the thesis. Should be at least 5 minutes.
+●	Short story: A short story piece that may be fictional or non-fictional, and it should creatively illustrate a narrative that drives the thesis. Should be at least 1,000 words.
+●	Graphic novel: A graphic novel may involve a fictional or non-fictional storyline, and it should creatively illustrate a narrative that drives the thesis. Should be between 9 to 15 pages (50 to 90 frames).
+●	A series of poems: A series of poems should have a cohesive theme, and it should creatively illustrate a narrative that drives the thesis. Should include at least four poems.
+●	3D artefact: A physical single or multi-media piece, and it should creatively illustrate a narrative that drives the thesis. Should be portable for submission.
+
+
+Tool: Interactive Development Environment (for coding)
+Format: Interactive Website (similar to a web game)
+ 
+Coming from a computer science background, I have always been fascinated by technology’s power to drive change. By building an interactive website, I can merge that technical passion with my interest in feminist diplomacy, curating key data and analysis so users no longer need to sift through dense policy documents. In this project, code becomes my artistic medium, transforming complex policy debates into an experience that is as evocative and communicative as any traditional artwork.
+
+This interactive website will let users engage directly with the real-world dilemmas facing France as it seeks to assume global leadership in feminist diplomacy after Sweden ended its pioneering approach. 
+
+The platform aims to include the following:
+
+•	What feminist diplomacy means today and why the question of leadership matters following Sweden's withdrawal.
+•	A comparison of how each country (France and Sweden) defined, branded, and acted on "feminist foreign policy" and what changed when Sweden stepped back.
+•	Three pillars:
+o	Resources: Which country's commitments and funding backed up their rhetoric?
+o	Institutional depth: How were policies included in government structures, and how vulnerable are they to political change?
+o	Norm-setting power: Who is shaping the conversation, building alliances, and setting new norms internationally?
+•	What the latest data and reports show us, highlighting strengths and credibility gaps such as budget transparency, arms exports, and staffing.
+•	Why these questions matter beyond policy circles. The site aims to link diplomatic choices to tangible impacts on women's health, education, and rights worldwide.
+•	An interactive simulation: Users will be able to adjust variables, such as funding, staffing, and policy focus, and immediately see how these choices affect a "credibility score," mirroring the dilemmas real policymakers face as France tries to lead where Sweden once did.
+
+This approach does more than present information. It invites users to experience the complexity of feminist diplomacy's new era, where past models are gone and new ones are still being tested.
+
+Reading List
+List some academic references that undergird your project, as necessary.
+
+Some of the core readings include:
+
+1.	Focus 2030. (2024, March 5). Feminist foreign policy: Where do France, Spain and Italy stand? Summary of the latest Gender in Geopolitics Institute report. https://focus2030.org/Feminist-foreign-policy-where-do-France-Spain-and-Italy-stand-Summary-of-the
+2.	France – International Strategy for a Feminist Foreign Policy 2025-2030. https://www.diplomatie.gouv.fr/IMG/pdf/meaediplomatie_fe_ministe_de_la_france_2025_eng_v3-rev2_cle029c11.pdf
+3.	Sweden – Handbook: Sweden’s Feminist Foreign Policy 2014-2022. https://www.gichd.org/fileadmin/uploads/gichd/GDEI/9._Sweden_s_feminist_foreign_policy.pdf
+4.	Thompson, L. “Norm Entrepreneurship and Feminist Foreign Policy.” International Affairs 99 (2023). https://journals.sagepub.com/doi/10.1177/02673231221115861?icid=int.sj-abstract.similar-articles.1
+5.	UN Women - feminist foreign policies. https://www.unwomen.org/sites/default/files/2022-09/Brief-Feminist-foreign-policies-en_0.pdf
+
+
+
+
+
+
+

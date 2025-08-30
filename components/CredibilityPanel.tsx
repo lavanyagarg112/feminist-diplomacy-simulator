@@ -1,13 +1,24 @@
 "use client";
-import indicators from "@/data/indicators.json" assert { type: "json" };
+import React, { useState } from "react";
+import fr from "@/data/indicators.fr.json" assert { type: "json" };
+import se from "@/data/indicators.se.json" assert { type: "json" };
+import sources from "@/data/sources.json" assert { type: "json" };
 import { computeCredibility } from "@/lib/credibility";
 import Tooltip from "./Tooltip";
 
+type Country = "France" | "Sweden";
+
 export default function CredibilityPanel() {
-  const result = computeCredibility(indicators as any);
+  const [country, setCountry] = useState<Country>("France");
+  const cfg = country === "France" ? (fr as any) : (se as any);
+  const result = computeCredibility(cfg);
+  const byId = Object.fromEntries((sources as any[]).map((s) => [s.id, s]));
   return (
     <section>
-      <h2 className="text-lg font-semibold">Credibility Snapshot</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-semibold">Credibility Snapshot</h2>
+        <CountrySelector country={country} onChange={setCountry} />
+      </div>
       <p className="text-sm text-slate-600">Computed from indicators with transparent sources.</p>
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
         {result.pillars.map((p) => (
@@ -18,20 +29,20 @@ export default function CredibilityPanel() {
             </div>
             <ul className="mt-2 space-y-1">
               {p.indicators.map((i) => (
-                <li key={i.id} className="flex items-center justify-between text-sm text-slate-700">
-                  <span className="truncate">
-                    {i.name}
-                    {i.sourceId && (
-                      <Tooltip label="Source">
-                        <div className="text-slate-800">
-                          <div className="font-semibold">{i.name}</div>
-                          <div className="mt-1 text-xs text-slate-600">Source ID: {i.sourceId}</div>
-                          {i.note && <div className="mt-1 text-xs text-amber-700">Note: {i.note}</div>}
-                        </div>
+                <li key={i.id} className="flex items-start justify-between gap-3 text-sm text-slate-700">
+                  <span className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="truncate" title={i.name}>{i.name}</span>
+                      <Tooltip label="Details">
+                        <SourceDetails id={i.sourceId as string} note={i.note} lookup={byId} indicatorName={i.name} />
                       </Tooltip>
+                    </div>
+                    {"descriptor" in i && (i as any).descriptor && (
+                      <div className="mt-0.5 text-xs text-slate-500">{(i as any).descriptor}</div>
                     )}
+                    {renderTargetBadge(i as any)}
                   </span>
-                  <span className="ml-2 font-medium">{Math.round(i.score * 100)}%</span>
+                  <span className="ml-2 shrink-0 text-right font-medium">{Math.round(i.score * 100)}%</span>
                 </li>
               ))}
             </ul>
@@ -41,8 +52,58 @@ export default function CredibilityPanel() {
       <div className="mt-4 rounded-xl bg-slate-50 p-4">
         <div className="text-sm text-slate-700">Overall Credibility</div>
         <div className="mt-1 text-2xl font-bold text-slate-900">{result.credibility}/100</div>
+        <div className="mt-1 text-xs text-slate-600">
+          Definition: Weighted combination of Resources, Institutional Depth, and Norm‑Setting (0–100).
+          <a className="ml-2 underline" href="/methodology" target="_self">How this is calculated</a>
+        </div>
       </div>
     </section>
   );
 }
 
+function SourceDetails({ id, note, lookup, indicatorName }: { id?: string; note?: string; lookup: Record<string, any>; indicatorName: string }) {
+  if (!id) {
+    return (
+      <div className="text-slate-800">
+        <div className="font-semibold">{indicatorName}</div>
+        <div className="mt-1 text-xs text-amber-700">Source needed — placeholder value</div>
+      </div>
+    );
+  }
+  const s = lookup[id];
+  if (!s) return <div className="text-xs text-slate-600">Source: {id}</div>;
+  return (
+    <div className="text-slate-800">
+      <div className="font-semibold">{s.title}</div>
+      <div className="mt-1 text-xs text-slate-600">{s.organization} • {s.year}</div>
+      {s.url && (
+        <a className="mt-2 inline-block text-xs font-medium text-rose-700 underline" href={s.url} target="_blank">
+          View source ↗
+        </a>
+      )}
+      {note && <div className="mt-2 text-xs text-amber-700">Note: {note}</div>}
+    </div>
+  );
+}
+
+function CountrySelector({ country, onChange }: { country: Country; onChange: (c: Country) => void }) {
+  return (
+    <div className="text-sm">
+      <label className="mr-2 text-slate-600">Country</label>
+      <select className="rounded border px-2 py-1" value={country} onChange={(e) => onChange(e.target.value as Country)}>
+        <option>France</option>
+        <option>Sweden</option>
+      </select>
+    </div>
+  );
+}
+
+function renderTargetBadge(i: any) {
+  if (i.type !== 'percent') return null;
+  if (typeof i.target !== 'number') return null;
+  if (typeof i.value !== 'number') return null;
+  const onTrack = i.value >= i.target;
+  const label = onTrack ? 'On track to target' : 'Off track vs target';
+  const cls = onTrack ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : 'text-amber-700 bg-amber-50 border-amber-200';
+  return <span className={`mt-1 inline-block rounded-full border px-2 py-0.5 text-xs ${cls}`}>{label}</span>;
+}

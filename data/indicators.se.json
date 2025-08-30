@@ -1,0 +1,86 @@
+{
+  "country": "Sweden",
+  "asOf": 2022,
+  "pillars": [
+    {
+      "id": "resources",
+      "name": "Resources",
+      "weight": 0.4,
+      "indicators": [
+        {
+          "id": "oda_gender_share",
+          "name": "ODA with gender objectives (%, DAC 1/2)",
+          "descriptor": "Bilateral ODA share during FFP period",
+          "type": "percent",
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "sourceId": "swe_ffp_handbook_2018",
+          "note": "Placeholder: populate with Sweden’s latest DAC gender marker shares during FFP period."
+        },
+        {
+          "id": "oda_principal",
+          "name": "ODA with gender as principal objective (%, DAC 2)",
+          "descriptor": "Principal focus during FFP period",
+          "type": "percent",
+          "value": 0,
+          "min": 0,
+          "max": 20,
+          "sourceId": "swe_ffp_handbook_2018",
+          "note": "Placeholder principal %; verify against OECD/DAC series."
+        }
+      ]
+    },
+    {
+      "id": "institutional_depth",
+      "name": "Institutional Depth",
+      "weight": 0.35,
+      "indicators": [
+        {
+          "id": "ffp_strategy_status",
+          "name": "FFP strategy status",
+          "descriptor": "2014–2022 FFP framework; label ended 2022",
+          "type": "ordinal",
+          "scale": ["none", "mention", "strategy", "embedded"],
+          "value": "strategy",
+          "sourceId": "swe_ffp_handbook_2018",
+          "note": "2014–2022 FFP framework active; label discontinued in 2022."
+        },
+        {
+          "id": "discontinued_label",
+          "name": "FFP label discontinued (2022)",
+          "descriptor": "Official discontinuation announced in 2022",
+          "type": "binary",
+          "value": true,
+          "sourceId": "sweden_discontinue_2022"
+        }
+      ]
+    },
+    {
+      "id": "norm_setting",
+      "name": "Norm-Setting Power",
+      "weight": 0.25,
+      "indicators": [
+        {
+          "id": "unsc_advocacy",
+          "name": "UNSC advocacy for WPS",
+          "descriptor": "Historic leadership on WPS agenda",
+          "type": "ordinal",
+          "scale": ["participant", "sponsor", "champion"],
+          "value": "champion",
+          "sourceId": "swe_ffp_handbook_2018",
+          "note": "Proxy for historic leadership; refine with specific resolutions/years."
+        }
+      ]
+    }
+  ],
+  "penalties": [
+    {
+      "id": "aid_cuts_2022",
+      "name": "Aid cuts post-2022",
+      "weight": 0.1,
+      "applies": false,
+      "note": "Set to true if verified reductions undermine gender/ODA commitments."
+    }
+  ]
+}

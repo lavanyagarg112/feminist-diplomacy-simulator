@@ -1,0 +1,108 @@
+{
+  "country": "France",
+  "asOf": 2024,
+  "pillars": [
+    {
+      "id": "resources",
+      "name": "Resources",
+      "weight": 0.4,
+      "indicators": [
+        {
+          "id": "oda_gender_share",
+          "name": "ODA with gender objectives (%, DAC 1/2)",
+          "descriptor": "Bilateral ODA share; law targets 75% by 2025",
+          "year": 2022,
+          "type": "percent",
+          "value": 46.4,
+          "target": 75,
+          "min": 0,
+          "max": 100,
+          "sourceId": "focus2030_2024",
+          "note": "Share of bilateral ODA tagged with gender objectives; replace with exact DAC series if available."
+        },
+        {
+          "id": "oda_principal",
+          "name": "ODA with gender as principal objective (%, DAC 2)",
+          "descriptor": "Principal focus; aim 20% by 2025",
+          "year": 2022,
+          "type": "percent",
+          "value": 6.3,
+          "min": 0,
+          "max": 20,
+          "sourceId": "focus2030_2024",
+          "note": "Percent principal focus; cross-verify with MEAE reporting for 2023/2024."
+        },
+        {
+          "id": "funding_feminist_csos",
+          "name": "Direct funding to feminist CSOs (EUR M)",
+          "descriptor": "Disbursements to women’s rights/feminist orgs",
+          "type": "amount",
+          "value": 50,
+          "min": 0,
+          "max": 150,
+          "sourceId": "fr_meae_2025_strategy",
+          "note": "Placeholder. Fill with latest disclosed allocation or proxy."
+        }
+      ]
+    },
+    {
+      "id": "institutional_depth",
+      "name": "Institutional Depth",
+      "weight": 0.35,
+      "indicators": [
+        {
+          "id": "ffp_strategy_status",
+          "name": "FFP strategy status",
+          "descriptor": "International Strategy 2025–2030 active",
+          "type": "ordinal",
+          "scale": ["none", "mention", "strategy", "embedded"],
+          "value": "strategy",
+          "sourceId": "fr_meae_2025_strategy"
+        },
+        {
+          "id": "wps_nap_active",
+          "name": "WPS National Action Plan active",
+          "descriptor": "France WPS NAP 2021–2025",
+          "type": "binary",
+          "value": true,
+          "sourceId": "fr_wps_nap_2021_2025"
+        }
+      ]
+    },
+    {
+      "id": "norm_setting",
+      "name": "Norm-Setting Power",
+      "weight": 0.25,
+      "indicators": [
+        {
+          "id": "gef_role",
+          "name": "Role in Generation Equality Forum",
+          "descriptor": "Co‑hosted Paris 2021; ongoing coalition work",
+          "type": "ordinal",
+          "scale": ["participant", "coalition_member", "co_host"],
+          "value": "co_host",
+          "sourceId": "gef_2021"
+        },
+        {
+          "id": "eu_g7_leadership",
+          "name": "EU/G7 leadership on gender",
+          "descriptor": "Membership and initiatives; specify roles",
+          "type": "ordinal",
+          "scale": ["none", "member", "chair"],
+          "value": "member",
+          "sourceId": "focus2030_2024",
+          "note": "Refine with specific roles and dates."
+        }
+      ]
+    }
+  ],
+  "penalties": [
+    {
+      "id": "arms_exports_contradiction",
+      "name": "Arms exports contradiction",
+      "weight": 0.1,
+      "applies": false,
+      "note": "Set to true only with substantiated evidence linking to WPS contradictions."
+    }
+  ]
+}
