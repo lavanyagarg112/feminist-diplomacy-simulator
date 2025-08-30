@@ -1,0 +1,13 @@
+{
+  "slug": "france",
+  "name": "France Baseline",
+  "description": "France’s current strategy baseline for feminist diplomacy.",
+  "baseline": {
+    "budget_allocation": 62,
+    "intersectionality_weight": 55,
+    "diplomacy_stance": 68,
+    "multilateralism": 72,
+    "domestic_coherence": 58
+  }
+}
+

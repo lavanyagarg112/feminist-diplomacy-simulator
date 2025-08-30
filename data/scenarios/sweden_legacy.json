@@ -1,0 +1,13 @@
+{
+  "slug": "sweden",
+  "name": "Sweden Legacy",
+  "description": "Sweden’s now-ended feminist foreign policy approach.",
+  "baseline": {
+    "budget_allocation": 70,
+    "intersectionality_weight": 78,
+    "diplomacy_stance": 65,
+    "multilateralism": 80,
+    "domestic_coherence": 66
+  }
+}
+
