@@ -46,6 +46,32 @@ Everything is designed to be presentation‑ready: readable UI, references via t
 - Country selector at the top of Compare with sticky headers and quick jump links.
 - Alt‑text review for accessibility and keyboard navigation audits.
 
+## What Changed in This Iteration
+- Compare now includes a per‑pillar delta strip vs targets, with links to relevant prescription presets.
+- New pages scaffolded to keep core views uncluttered:
+  - `/evidence`: Curated sources from `data/sources.json`.
+  - `/targets`: Per‑pillar target table with rationale placeholders.
+  - `/glossary`: Key terms and a brief FAQ.
+- Components added:
+  - `SourceChip` for inline citations.
+  - `CoverageBadge` showing % of indicators with verified sources (excludes placeholders).
+- Prescriptions deep link: visiting `/simulator/prescriptions?preset=<id>` auto‑applies a preset.
+
+## How to Use the MVP for Research
+- Establish baseline on `/simulator` and note which pillars bind credibility.
+- Compare France vs Sweden on `/simulator/compare`; read per‑pillar gaps vs targets and follow links to Evidence and Prescriptions.
+- Use `/targets` to explain what thresholds matter and why; `/evidence` to verify figures and spot placeholders; `/glossary` to align terminology.
+
+## Shortlist of Next Implementation Tasks
+1. Externalize targets to `data/targets.json` with `sourceId` and years; wire Compare to read from it.
+2. Add JSON Schema `data/indicators.schema.json` and `npm run validate:data`; fail build on placeholders.
+3. Add a toggle on Compare for “vs Sweden” deltas (compute against Sweden pillar scores).
+4. Render `SourceChip` in Snapshot and Methodology next to key claims.
+5. Fill Sweden DAC values and France CSO figure; add OECD/DAC entries to `data/sources.json`.
+
+## Contact / Context
+- Research context summarized in `research.txt` and `proposal.txt`.
+
 ## How to Run
 - `npm run dev` for local dev (Next.js).
 - `npm run build && npm start` for production preview.

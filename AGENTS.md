@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `app/`: Next.js App Router pages and layouts (e.g., `app/simulator`, `app/info`, `app/methodology`). Global CSS: `app/globals.css`.
+- `app/`: Next.js App Router pages and layouts (e.g., `app/simulator`, `app/info`, `app/methodology`, `app/evidence`, `app/targets`, `app/glossary`). Global CSS: `app/globals.css`.
 - `components/`: Reusable React components (PascalCase `*.tsx`), e.g., `CredibilityPanel`, `PillarGauges`, `TabNav`.
 - `lib/`: Core logic and utilities, e.g., `credibility.ts`, `normalize.ts`, `scoring.ts`, `serialize.ts`, `types.ts`.
 - `data/`: Source-of-truth JSON, e.g., `data/sources.json`, `data/indicators.fr.json`, `data/indicators.se.json`.
@@ -36,3 +36,7 @@
 - Env: Use `.env.local`; never commit secrets. Only expose `NEXT_PUBLIC_*` variables when safe for clients.
 - Data integrity: Mark placeholders clearly; replace with verified figures and `sourceId` before release.
 - Accessibility: Use semantic HTML, keyboard access, and adequate contrast.
+- New contributor orientation
+  - Compare page includes a per‑pillar delta strip vs targets with links to prescriptions.
+  - Prescriptions support deep linking via `?preset=<id>` and will auto‑apply.
+  - Evidence and Targets pages centralize sources and target rationale to reduce clutter in core flows.

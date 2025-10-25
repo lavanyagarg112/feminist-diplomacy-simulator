@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CredibilityPanel from "@/components/CredibilityPanel";
 import DeltaBadge from "@/components/DeltaBadge";
 import { computeCredibility } from "@/lib/credibility";
@@ -66,6 +66,16 @@ const presets: Preset[] = [
 ];
 
 export default function PrescriptionsPage() {
+  // Auto-apply preset from query param if provided (enhances delta links)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const presetId = params.get("preset");
+    if (!presetId) return;
+    const p = presets.find((x) => x.id === presetId);
+    if (!p) return;
+    setCfg((c: any) => p.apply(c));
+    setActive(p.id);
+  }, []);
   const [cfg, setCfg] = useState<any>(fr);
   const [active, setActive] = useState<string | null>(null);
   const base = computeCredibility(fr as any);

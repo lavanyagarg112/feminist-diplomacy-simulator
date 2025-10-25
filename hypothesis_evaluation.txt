@@ -1,0 +1,12 @@
+Hypothesis evaluation (which path closes gaps, why)
+
+Path A — Resource-first: Raises gender marker shares toward 60%+/12% principal and increases direct CSO funding. Expected effect: largest immediate lift in the Resources pillar; spillovers to credibility are strong because resources are the current binding constraint. Tradeoff: fiscal and allocation politics; must guard against marker inflation without design substance.
+
+Path B — Institution-deepening: Embeds across ministries, maintains the strategy and WPS NAP, and strengthens focal points. Expected effect: stabilizes credibility by improving depth and making resource commitments “stick.” Tradeoff: slower visible gains; depends on bureaucratic traction and incentives.
+
+Path C — Norms-lead: Pursues leadership roles (EU/G7 chair, coalitions) with a resources floor. Expected effect: increases Norm-setting; modest overall lift unless paired with Resource gains. Tradeoff: risks perception of “talk over spend” if not matched by allocations.
+
+Best plausible mix: A + B in sequence (raise principal and CSO funding while institutionalizing delivery) delivers the strongest, durable credibility gains. C is valuable as a complement once A/B are in motion.
+
+Calls to action and data needs: Populate Sweden DAC (gender 1/2, principal 2) and France CSO funding with year + sourceId to convert indicative comparisons into evidence-backed claims. Externalize targets with citations (data/targets.json) to firm up “binding constraint” thresholds. Keep penalties evidence-driven; only enable with explicit sources.
+

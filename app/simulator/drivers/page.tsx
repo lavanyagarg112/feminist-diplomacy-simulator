@@ -14,6 +14,19 @@ const labels: Record<LeverKey, string> = {
   domestic_coherence: "Domestic Coherence",
 };
 
+const help: Record<LeverKey, string> = {
+  budget_allocation:
+    "Share of aid and policy effort prioritizing gender equality and feminist outcomes. Higher implies more resources directed to gender objectives and feminist CSOs.",
+  intersectionality_weight:
+    "Degree to which policies account for intersecting identities (e.g., race, class, disability) in design and delivery.",
+  diplomacy_stance:
+    "Public positioning and advocacy strength on gender norms (e.g., WPS agenda, rights language) in bilateral and multilateral fora.",
+  multilateralism:
+    "Alignment and leadership within multilateral bodies (EU/G7/UN) to advance gender equality, including coalition building.",
+  domestic_coherence:
+    "Consistency between external commitments and domestic policies (e.g., avoiding contradictions like harmful exports or rollbacks).",
+};
+
 export default function DriversPage() {
   const [levers, setLevers] = useState<Record<LeverKey, number>>({
     budget_allocation: 62,
@@ -30,7 +43,14 @@ export default function DriversPage() {
         <h2 className="font-semibold">Adjust policy drivers</h2>
         <div className="grid gap-4">
           {(Object.keys(labels) as LeverKey[]).map((k) => (
-            <LeverControl key={k} label={labels[k]} lever={k} value={levers[k]} onChange={(lk, v) => setLevers((p) => ({ ...p, [lk]: v }))} />
+            <LeverControl
+              key={k}
+              label={labels[k]}
+              description={help[k]}
+              lever={k}
+              value={levers[k]}
+              onChange={(lk, v) => setLevers((p) => ({ ...p, [lk]: v }))}
+            />
           ))}
         </div>
       </div>

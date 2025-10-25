@@ -2,6 +2,10 @@
 
 An interactive, research‑anchored website that lets users explore how policy choices affect the credibility of “feminist diplomacy”, with a focus on France (current) and Sweden (legacy). It combines sourced indicators, transparent scoring, and clear visuals to support learning and discussion.
 
+Research framing
+- Credibility triangulates three pillars: Resources, Institutional Depth, and Norm‑Setting. It measures the plausibility that stated aims are matched by allocations, institutionalization, and external leadership (distinct from effectiveness).
+- Indicators are normalized, aggregated by weights, and optionally penalized when contradictions are evidenced. See Methodology for details.
+
 ## Quick Start
 - Requirements: Node 18+.
 - Install: `npm install`
@@ -22,7 +26,7 @@ An interactive, research‑anchored website that lets users explore how policy c
 ## Simulator Overview
 - Snapshot: Current state (France) with pillar gauges and credibility.
 - Drivers & Trade‑offs: Adjust high‑level drivers and see outcome changes with an impact explainer.
-- Compare: France vs Sweden side‑by‑side with context (Sweden label discontinued in 2022).
+- Compare: France vs Sweden side‑by‑side with context (Sweden label discontinued in 2022) plus per‑pillar deltas vs targets and links to prescriptions.
 - Prescriptions: Evidence‑based presets with before/after deltas and unselect/reset.
 - Methodology & Sources: Transparent assumptions and canonical references.
 
@@ -33,4 +37,5 @@ An interactive, research‑anchored website that lets users explore how policy c
 
 ## Status
 - France indicators partially populated (with sources). Sweden values marked as placeholders pending verification.
+- New pages: `/evidence` (sources), `/targets` (targets & rationale), `/glossary` (terms & FAQ).
 - See `NEXT_STEPS.md` for a handoff plan and open items.
