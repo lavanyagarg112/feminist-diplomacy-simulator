@@ -24,8 +24,8 @@ Everything is designed to be presentation‑ready: readable UI, references via t
 - Repo docs: `README.md`, updated `AGENTS.md`.
 
 ## Current Status
-- France indicators populated where research supports (e.g., 46.4% ODA gender, 6.3% principal). CSO funding is a placeholder.
-- Sweden indicators exist but are placeholders pending DAC values; 2022 discontinuation annotated.
+- France indicators updated to align with the latest review (e.g., ~28% gender‑focused ODA reported; period unspecified in source) and ~6.3% principal (pending full DAC time series verification). CSO funding remains a placeholder until a verified figure is added.
+- Sweden indicators updated with a historic benchmark (79% bilateral aid tagged significant/principal, 2009–2014) as a legacy reference; principal share remains to be populated for 2014–2022. 2022 discontinuation annotated.
 - Credibility panel shows sources and flags placeholders; methodology documents assumptions.
 
 ## Priority Next Tasks

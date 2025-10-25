@@ -2,6 +2,7 @@
 import CountryComparePanel from "@/components/CountryComparePanel";
 import SectionIntro from "@/components/SectionIntro";
 import fr from "@/data/indicators.fr.json" assert { type: "json" };
+import targetsData from "@/data/targets.json" assert { type: "json" };
 import { computeCredibility } from "@/lib/credibility";
 import PillarDeltaStrip from "@/components/PillarDeltaStrip";
 import Link from "next/link";
@@ -9,18 +10,17 @@ import Link from "next/link";
 export default function ComparePage() {
   // Compute France per-pillar scores to compare against simple target benchmarks.
   const frRes = computeCredibility(fr as any);
-  // Simple, explicit target map per pillar (0..100). Adjust as data matures.
-  const targets: Record<string, { label: string; targetPct: number; presetId?: string }> = {
-    resources: { label: "Resources", targetPct: 80, presetId: "resources_first" },
-    institutional_depth: { label: "Institutional depth", targetPct: 75, presetId: "institutional_deepen" },
-    norm_setting: { label: "Norm-setting", targetPct: 70, presetId: "norms_lead" },
-  };
+  // Load targets from data file (0..100);
+  const tmap: Record<string, { label: string; targetPct: number; presetId?: string }> = {};
+  (targetsData as any).pillars.forEach((t: any) => {
+    tmap[t.id] = { label: t.label, targetPct: t.targetPct, presetId: t.id === "resources" ? "resources_first" : t.id === "institutional_depth" ? "institutional_deepen" : t.id === "norm_setting" ? "norms_lead" : undefined };
+  });
   const deltas = frRes.pillars.map((p) => ({
     id: p.id,
-    label: targets[p.id]?.label || p.name,
+    label: tmap[p.id]?.label || p.name,
     currentPct: Math.round(p.score * 100),
-    targetPct: targets[p.id]?.targetPct ?? 75,
-    presetId: targets[p.id]?.presetId,
+    targetPct: tmap[p.id]?.targetPct ?? 75,
+    presetId: tmap[p.id]?.presetId,
   }));
   return (
     <section className="grid gap-6">

@@ -10,24 +10,24 @@
         {
           "id": "oda_gender_share",
           "name": "ODA with gender objectives (%, DAC 1/2)",
-          "descriptor": "Bilateral ODA share during FFP period",
+          "descriptor": "Single-year (2022)",
           "type": "percent",
-          "value": 0,
+          "value": 93.4,
           "min": 0,
           "max": 100,
-          "sourceId": "swe_ffp_handbook_2018",
-          "note": "Placeholder: populate with Sweden’s latest DAC gender marker shares during FFP period."
+          "sourceId": "focus2030_which_countries_gender_2025",
+          "note": "Focus 2030 (2025) single-year 2022 DAC 1/2 share; OECD DCP corroborates high screening rate."
         },
         {
           "id": "oda_principal",
           "name": "ODA with gender as principal objective (%, DAC 2)",
-          "descriptor": "Principal focus during FFP period",
+          "descriptor": "Proxy (OECD two-year average 2021–22)",
           "type": "percent",
-          "value": 0,
+          "value": 8.7,
           "min": 0,
           "max": 20,
-          "sourceId": "swe_ffp_handbook_2018",
-          "note": "Placeholder principal %; verify against OECD/DAC series."
+          "sourceId": "oecd_dcp_sweden_gender_2021_22",
+          "note": "Focus 2030 did not specify a 2022 DAC 2 value; using OECD DCP two-year average (2021–22)."
         }
       ]
     },

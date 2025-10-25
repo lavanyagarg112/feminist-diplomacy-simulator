@@ -61,8 +61,7 @@ export default function InfoSession() {
       <div id="pillars" />
       <ul className="list-disc space-y-1 pl-6 text-slate-700">
         <li>
-          Resources: % of ODA with gender objectives (France ~46.4% vs 75% target); % principal (~6.3%);
-          direct support to feminist CSOs. Source: MEAE, Focus 2030.
+          Resources: % of ODA with gender objectives (France ~46% in 2022 vs 75% target), % principal (~6%), and direct support to feminist CSOs (~USD 105M, 2022–2023). Source: Focus 2030 (2025).
         </li>
         <li>
           Institutional depth: Existence of a current FFP strategy (FR: yes), WPS NAP active, and interministerial support.
