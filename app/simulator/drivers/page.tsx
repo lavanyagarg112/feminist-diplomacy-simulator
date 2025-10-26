@@ -1,7 +1,8 @@
 "use client";
+export const dynamic = 'force-dynamic';
 
-import { useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import LeverControl from "@/components/LeverControl";
 import OutcomeChart from "@/components/OutcomeChart";
 import DeltaBadge from "@/components/DeltaBadge";
@@ -76,11 +77,17 @@ export default function DriversPage() {
 
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  const [levers, setLevers] = useState<Record<LeverKey, number>>(() =>
-    decodeLevers(new URLSearchParams(searchParams.toString()), defaults)
-  );
+  const [levers, setLevers] = useState<Record<LeverKey, number>>(defaults);
+
+  // Load initial values from URL on mount (client-only)
+  useEffect(() => {
+    try {
+      const initial = decodeLevers(new URLSearchParams(window.location.search), defaults);
+      setLevers(initial);
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Keep URL in sync with lever state for shareable links
   useEffect(() => {
@@ -103,6 +110,7 @@ export default function DriversPage() {
   }
 
   return (
+    <Suspense fallback={<div />}> 
     <section className="grid gap-6 md:grid-cols-2">
       {/* Left: Levers */}
       <div className="rounded border bg-white">
@@ -226,5 +234,6 @@ export default function DriversPage() {
         </div>
       </div>
     </section>
+    </Suspense>
   );
 }

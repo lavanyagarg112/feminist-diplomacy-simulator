@@ -13,11 +13,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-screen bg-slate-50 text-slate-900">
         <header className="border-b bg-white">
           <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-            <Link href="/" className="font-semibold">Feminist Diplomacy Simulator</Link>
+            <Link href="/briefing" className="font-semibold">Feminist Diplomacy Simulator</Link>
             <div className="space-x-4">
-              <Link href="/simulator" className="text-sm hover:underline">Simulator</Link>
-              <Link href="/info" className="text-sm hover:underline">Info Session</Link>
-              <Link href="/about" className="text-sm hover:underline">About</Link>
+              <Link href="/briefing" className="text-sm hover:underline">Briefing</Link>
+              <Link href="/simulator/compare" className="text-sm hover:underline">Compare</Link>
+              <Link href="/details" className="text-sm hover:underline">Details</Link>
             </div>
           </nav>
         </header>

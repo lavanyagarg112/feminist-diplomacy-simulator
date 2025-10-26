@@ -30,7 +30,6 @@ export default function InfoSession() {
       {/* Snapshot panel brings the indicators to the info page */}
       <div className="mb-8">
         {/** Dynamically import to keep this page lightweight **/}
-        {/* @ts-expect-error Server Component boundary for client panel */}
         <ClientCredibility />
       </div>
 
