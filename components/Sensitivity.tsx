@@ -7,7 +7,7 @@ const OUTCOME_OPTIONS: Array<{ key: OutcomeKey; label: string }> = [
   { key: "safety", label: "Safety" },
   { key: "economic", label: "Economic" },
   { key: "diplomatic_capital", label: "Diplomatic" },
-  { key: "backlash_risk", label: "Backlash (↓ better)" },
+  { key: "backlash_risk", label: "Backlash" },
 ];
 
 export default function Sensitivity({
@@ -78,4 +78,3 @@ function labelFor(k: LeverKey) {
       return "Domestic Coherence";
   }
 }
-

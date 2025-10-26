@@ -27,8 +27,7 @@ export default function ComparisonPanel({ left, right }: { left: Outcomes; right
       <Row label="Safety" a={left.safety} b={right.safety} />
       <Row label="Economic" a={left.economic} b={right.economic} />
       <Row label="Diplomatic" a={left.diplomatic_capital} b={right.diplomatic_capital} />
-      <Row label="Backlash (↓ better)" a={left.backlash_risk} b={right.backlash_risk} />
+      <Row label="Backlash" a={left.backlash_risk} b={right.backlash_risk} />
     </div>
   );
 }
-

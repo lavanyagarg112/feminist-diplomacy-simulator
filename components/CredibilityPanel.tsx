@@ -13,6 +13,7 @@ export default function CredibilityPanel() {
   const cfg = country === "France" ? (fr as any) : (se as any);
   const result = computeCredibility(cfg);
   const byId = Object.fromEntries((sources as any[]).map((s) => [s.id, s]));
+  const activePenalties = (result.penalties || []).filter((p) => p.applies);
   return (
     <section>
       <div className="flex items-center justify-between">
@@ -56,6 +57,20 @@ export default function CredibilityPanel() {
           Definition: Weighted combination of Resources, Institutional Depth, and Norm‑Setting (0–100).
           <a className="ml-2 underline" href="/methodology" target="_self">How this is calculated</a>
         </div>
+        {activePenalties.length > 0 && (
+          <div className="mt-3 rounded border border-amber-200 bg-amber-50 p-3">
+            <div className="text-xs font-medium text-amber-800">Penalties applied</div>
+            <ul className="mt-1 space-y-1 text-xs text-amber-900">
+              {activePenalties.map((p) => (
+                <li key={p.id}>
+                  <span className="font-medium">{p.name}</span>
+                  <span className="ml-1 opacity-80">(−{Math.round(p.weight * 100)}%)</span>
+                  {p.note && <span className="ml-2">— {p.note}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );
