@@ -28,12 +28,15 @@ export function normalize(spec: Spec): number {
       return spec.value ? 1 : 0;
     }
     case 'ordinal': {
+      // Mid-bin normalization to avoid 0 and 1 extremes.
+      // Maps categories to (idx + 0.5) / n so nothing reaches 0 or 1.
+      // This makes “top category” strong but not absolute (no 100%).
       const idx = spec.scale.indexOf(spec.value);
       if (idx < 0) return 0;
-      return spec.scale.length <= 1 ? 1 : idx / (spec.scale.length - 1);
+      const n = Math.max(1, spec.scale.length);
+      return (idx + 0.5) / n;
     }
     default:
       return 0;
   }
 }
-

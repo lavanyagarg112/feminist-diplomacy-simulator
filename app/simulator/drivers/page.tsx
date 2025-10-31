@@ -1,7 +1,8 @@
 "use client";
+export const dynamic = 'force-dynamic';
 
-import { useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import LeverControl from "@/components/LeverControl";
 import OutcomeChart from "@/components/OutcomeChart";
 import DeltaBadge from "@/components/DeltaBadge";
@@ -76,11 +77,17 @@ export default function DriversPage() {
 
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  const [levers, setLevers] = useState<Record<LeverKey, number>>(() =>
-    decodeLevers(new URLSearchParams(searchParams.toString()), defaults)
-  );
+  const [levers, setLevers] = useState<Record<LeverKey, number>>(defaults);
+
+  // Load initial values from URL on mount (client-only)
+  useEffect(() => {
+    try {
+      const initial = decodeLevers(new URLSearchParams(window.location.search), defaults);
+      setLevers(initial);
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Keep URL in sync with lever state for shareable links
   useEffect(() => {
@@ -103,7 +110,11 @@ export default function DriversPage() {
   }
 
   return (
+    <Suspense fallback={<div />}> 
     <section className="grid gap-6 md:grid-cols-2">
+      <div className="md:col-span-2 rounded-xl bg-slate-50 p-4 text-xs text-slate-700">
+        Outcomes here are separate from the credibility score. Adjusting drivers changes projected outcomes (rights, safety, economic, diplomatic, backlash), not the credibility metric. See <a className="underline" href="/details#methodology">Details</a> for how credibility is calculated.
+      </div>
       {/* Left: Levers */}
       <div className="rounded border bg-white">
         <div className="flex flex-col gap-2 border-b px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
@@ -226,5 +237,6 @@ export default function DriversPage() {
         </div>
       </div>
     </section>
+    </Suspense>
   );
 }

@@ -6,7 +6,7 @@ const tabs = [
   { href: "/simulator/drivers", label: "Drivers & Trade-offs" },
   { href: "/simulator/compare", label: "Compare" },
   { href: "/simulator/prescriptions", label: "Prescriptions" },
-  { href: "/methodology", label: "Methodology" },
+  { href: "/details", label: "Details" },
 ];
 
 export default function TabNav() {
@@ -31,4 +31,3 @@ export default function TabNav() {
     </nav>
   );
 }
-

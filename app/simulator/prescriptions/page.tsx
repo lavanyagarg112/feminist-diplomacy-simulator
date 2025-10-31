@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import CredibilityPanel from "@/components/CredibilityPanel";
 import DeltaBadge from "@/components/DeltaBadge";
 import { computeCredibility } from "@/lib/credibility";
+import CoverageBadge from "@/components/CoverageBadge";
+import CredibilityInfo from "@/components/CredibilityInfo";
 import fr from "@/data/indicators.fr.json" assert { type: "json" };
 
 type Preset = {
@@ -80,6 +82,10 @@ export default function PrescriptionsPage() {
   const [active, setActive] = useState<string | null>(null);
   const base = computeCredibility(fr as any);
   const proj = computeCredibility(cfg as any);
+  // Data coverage remains the same as France baseline unless indicators change
+  const frIndCount = (fr as any).pillars.reduce((s: number, p: any) => s + p.indicators.length, 0);
+  const frWithSources = (fr as any).pillars.reduce((s: number, p: any) => s + p.indicators.filter((i: any) => !!i.sourceId && !String(i.note||"").toLowerCase().includes("placeholder")).length, 0);
+  const asOf = (fr as any).asOf;
 
   return (
     <section className="grid gap-6">
@@ -120,8 +126,14 @@ export default function PrescriptionsPage() {
         ))}
       </div>
       <div className="rounded border bg-white p-4">
-        <h3 className="mb-2 font-semibold">Projected credibility under selected path</h3>
+        <h3 className="mb-2 flex items-center gap-2 font-semibold">Projected credibility under selected path <CredibilityInfo /></h3>
         <div className="mb-2 text-sm text-slate-700">Overall: {proj.credibility}/100 <DeltaBadge before={base.credibility} after={proj.credibility} /></div>
+        <div className="mb-3 flex items-center gap-2 text-xs text-slate-700">
+          <span>Data coverage:</span>
+          <CoverageBadge total={frIndCount} withSources={frWithSources} />
+          <span className="text-slate-500">As of {asOf}.</span>
+          <span className="text-slate-500">Coverage does not change the score; presets use the same evidence base.</span>
+        </div>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
           {proj.pillars.map((p, idx) => (
             <div key={p.id} className="rounded border border-slate-200 p-3 text-sm">
