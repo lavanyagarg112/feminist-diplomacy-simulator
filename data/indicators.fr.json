@@ -13,12 +13,12 @@
           "descriptor": "Bilateral ODA share; law targets 75% by 2025",
           "year": 2022,
           "type": "percent",
-          "value": 46.4,
+          "value": 46,
           "target": 75,
           "min": 0,
           "max": 100,
-          "sourceId": "focus2030_2024",
-          "note": "Share of bilateral ODA tagged with gender objectives; replace with exact DAC series if available."
+          "sourceId": "focus2030_which_countries_gender_2025",
+          "note": "Focus 2030 (2025) confirms 2022 France DAC 1/2 share at 46%."
         },
         {
           "id": "oda_principal",
@@ -26,22 +26,23 @@
           "descriptor": "Principal focus; aim 20% by 2025",
           "year": 2022,
           "type": "percent",
-          "value": 6.3,
+          "value": 6,
           "min": 0,
           "max": 20,
-          "sourceId": "focus2030_2024",
-          "note": "Percent principal focus; cross-verify with MEAE reporting for 2023/2024."
+          "sourceId": "focus2030_which_countries_gender_2025",
+          "note": "Focus 2030 (2025) confirms 2022 France DAC 2 at 6%."
         },
         {
           "id": "funding_feminist_csos",
-          "name": "Direct funding to feminist CSOs (EUR M)",
-          "descriptor": "Disbursements to women’s rights/feminist orgs",
+          "name": "Direct funding to feminist CSOs (USD M)",
+          "descriptor": "Funding to women’s rights orgs/feminist movements/gender institutions",
+          "year": 2023,
           "type": "amount",
-          "value": 50,
+          "value": 105,
           "min": 0,
-          "max": 150,
-          "sourceId": "fr_meae_2025_strategy",
-          "note": "Placeholder. Fill with latest disclosed allocation or proxy."
+          "max": 500,
+          "sourceId": "focus2030_which_countries_gender_2025",
+          "note": "Focus 2030 (2025) figure for 2022–2023. OECD CSO channel proxy (USD 783.8M, 2022) kept in notes for reference."
         }
       ]
     },
@@ -53,11 +54,12 @@
         {
           "id": "ffp_strategy_status",
           "name": "FFP strategy status",
-          "descriptor": "International Strategy 2025–2030 active",
+          "descriptor": "International Strategy 2025–2030; cross-cutting mainstreaming",
           "type": "ordinal",
           "scale": ["none", "mention", "strategy", "embedded"],
-          "value": "strategy",
-          "sourceId": "fr_meae_2025_strategy"
+          "value": "embedded",
+          "sourceId": "fr_meae_2025_strategy",
+          "note": "2018 strategy and 2021 Programming Law frame gender as cross-cutting; using 'embedded' to reflect inter-ministerial mainstreaming. See also meae_strategy_2018."
         },
         {
           "id": "wps_nap_active",
@@ -66,6 +68,48 @@
           "type": "binary",
           "value": true,
           "sourceId": "fr_wps_nap_2021_2025"
+        },
+        {
+          "id": "gender_budget_tagging_coverage",
+          "name": "Gender-budget tagging across ministries",
+          "descriptor": "Adoption level of gender-budget tagging in government budgeting",
+          "type": "ordinal",
+          "scale": ["none", "pilots", "partial", "full_audited"],
+          "value": "partial",
+          "sourceId": "fr_meae_2025_strategy",
+          "note": "Placeholder — needs cross-ministry verification and audit reference."
+        },
+        {
+          "id": "gender_focal_points_coverage",
+          "name": "Gender focal points coverage",
+          "descriptor": "% of embassies/departments with appointed gender focal points",
+          "type": "percent",
+          "value": 65,
+          "min": 0,
+          "max": 100,
+          "sourceId": "fr_meae_2025_strategy",
+          "note": "Placeholder — strategy cites a network of focal points; coverage share requires verification."
+        },
+        {
+          "id": "staff_training_coverage",
+          "name": "Staff trained on gender equality",
+          "descriptor": "% of staff completing required gender training",
+          "type": "percent",
+          "value": 60,
+          "min": 0,
+          "max": 100,
+          "sourceId": "fr_meae_2025_strategy",
+          "note": "Placeholder — strategy mandates training; exact coverage rate to confirm."
+        },
+        {
+          "id": "legal_codonization_depth",
+          "name": "Legal codification depth",
+          "descriptor": "Level of codification across instruments (e.g., Programming Law 2021)",
+          "type": "ordinal",
+          "scale": ["none", "ministerial_guideline", "programming_law", "programming_law_audited"],
+          "value": "programming_law",
+          "sourceId": "fr_meae_2025_strategy",
+          "note": "Placeholder — confirm external audit/oversight for top tier."
         }
       ]
     },
@@ -86,12 +130,40 @@
         {
           "id": "eu_g7_leadership",
           "name": "EU/G7 leadership on gender",
-          "descriptor": "Membership and initiatives; specify roles",
+          "descriptor": "G7 Presidency (2019): GEAC extended; Biarritz Partnership",
           "type": "ordinal",
           "scale": ["none", "member", "chair"],
-          "value": "member",
-          "sourceId": "focus2030_2024",
-          "note": "Refine with specific roles and dates."
+          "value": "chair",
+          "sourceId": "ifw_kiel_g7_gender_2019"
+        },
+        {
+          "id": "leadership_recency",
+          "name": "Leadership recency",
+          "descriptor": "Leadership roles within the last 3 years",
+          "type": "ordinal",
+          "scale": ["legacy", "recent"],
+          "value": "legacy",
+          "note": "Placeholder — confirm any leadership roles within 2022–2024."
+        },
+        {
+          "id": "coalition_copresidencies_last3y",
+          "name": "Coalitions co-led (last 3y)",
+          "descriptor": "Count of gender-related coalitions/taskforces co-led",
+          "type": "amount",
+          "value": 1,
+          "min": 0,
+          "max": 5,
+          "note": "Placeholder — requires enumeration; set conservatively."
+        },
+        {
+          "id": "multilateral_initiatives_continuity",
+          "name": "Continuity of multilateral initiatives",
+          "descriptor": "Consistency sustaining gender initiatives across cycles",
+          "type": "ordinal",
+          "scale": ["ad_hoc", "episodic", "sustained"],
+          "value": "sustained",
+          "sourceId": "gef_2021",
+          "note": "Proxy via continued GEF coalition work; verify breadth across fora."
         }
       ]
     }
@@ -103,6 +175,20 @@
       "weight": 0.1,
       "applies": false,
       "note": "Set to true only with substantiated evidence linking to WPS contradictions."
+    },
+    {
+      "id": "aid_budget_cut_2024",
+      "name": "Aid budget cut (2024)",
+      "weight": 0.1,
+      "applies": false,
+      "note": "France announced ~€742M ODA reduction (~12.5%) in 2024, contradicting 0.7% GNI trajectory. Source: focus2030_fr_reneges_2025."
+    },
+    {
+      "id": "loan_dominance_climate_2022",
+      "name": "Climate ODA loan dominance (2022)",
+      "weight": 0.05,
+      "applies": false,
+      "note": "~85% of climate ODA as loans (2022) per OECD DCP summary, indicating coherence risks. Source: oecd_dcp_france_profile_2024."
     }
   ]
 }

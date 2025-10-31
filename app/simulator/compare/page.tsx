@@ -2,6 +2,7 @@
 import CountryComparePanel from "@/components/CountryComparePanel";
 import SectionIntro from "@/components/SectionIntro";
 import fr from "@/data/indicators.fr.json" assert { type: "json" };
+import targetsData from "@/data/targets.json" assert { type: "json" };
 import { computeCredibility } from "@/lib/credibility";
 import PillarDeltaStrip from "@/components/PillarDeltaStrip";
 import Link from "next/link";
@@ -9,18 +10,17 @@ import Link from "next/link";
 export default function ComparePage() {
   // Compute France per-pillar scores to compare against simple target benchmarks.
   const frRes = computeCredibility(fr as any);
-  // Simple, explicit target map per pillar (0..100). Adjust as data matures.
-  const targets: Record<string, { label: string; targetPct: number; presetId?: string }> = {
-    resources: { label: "Resources", targetPct: 80, presetId: "resources_first" },
-    institutional_depth: { label: "Institutional depth", targetPct: 75, presetId: "institutional_deepen" },
-    norm_setting: { label: "Norm-setting", targetPct: 70, presetId: "norms_lead" },
-  };
+  // Load targets from data file (0..100);
+  const tmap: Record<string, { label: string; targetPct: number; presetId?: string }> = {};
+  (targetsData as any).pillars.forEach((t: any) => {
+    tmap[t.id] = { label: t.label, targetPct: t.targetPct, presetId: t.id === "resources" ? "resources_first" : t.id === "institutional_depth" ? "institutional_deepen" : t.id === "norm_setting" ? "norms_lead" : undefined };
+  });
   const deltas = frRes.pillars.map((p) => ({
     id: p.id,
-    label: targets[p.id]?.label || p.name,
+    label: tmap[p.id]?.label || p.name,
     currentPct: Math.round(p.score * 100),
-    targetPct: targets[p.id]?.targetPct ?? 75,
-    presetId: targets[p.id]?.presetId,
+    targetPct: tmap[p.id]?.targetPct ?? 75,
+    presetId: tmap[p.id]?.presetId,
   }));
   return (
     <section className="grid gap-6">
@@ -28,9 +28,10 @@ export default function ComparePage() {
         title="What went wrong in Sweden?"
         subtitle="Sweden pioneered FFP (2014–2022) but discontinued the label in 2022. Compare France now vs Sweden’s legacy to see pillar differences and where gaps emerged."
       />
+      <div className="text-xs text-slate-600">Legend: Credibility = composite of pillars; Data coverage = % indicators with verified sources; Deltas = current vs target.</div>
       <CountryComparePanel />
       <div className="text-sm text-slate-700">
-        Explore gaps: vs target here; or switch to <Link className="underline" href="/targets">Targets</Link> and <Link className="underline" href="/evidence">Evidence</Link> for details.
+        Explore gaps: vs target here; or switch to <Link className="underline" href="/details#targets">Targets</Link> and <Link className="underline" href="/details#evidence">Evidence</Link> for details.
       </div>
       <div className="rounded border bg-white p-4">
         <div className="mb-2 flex items-center justify-between">

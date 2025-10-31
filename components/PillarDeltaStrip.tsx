@@ -11,7 +11,9 @@ export type PillarDelta = {
 
 export default function PillarDeltaStrip({ deltas }: { deltas: PillarDelta[] }) {
   return (
-    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
+    <div>
+      <div className="text-xs text-slate-600">Legend: Current vs target (not coverage).</div>
+      <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
       {deltas.map((d) => {
         const delta = Math.round((d.currentPct - d.targetPct) * 10) / 10;
         const ok = delta >= 0;
@@ -47,7 +49,7 @@ export default function PillarDeltaStrip({ deltas }: { deltas: PillarDelta[] }) 
           </div>
         );
       })}
+      </div>
     </div>
   );
 }
-

@@ -1,0 +1,116 @@
+Project: Feminist Diplomacy Credibility — Interactive Briefing and Simulator
+
+Purpose
+- Assess the credibility of France’s feminist diplomacy after Sweden’s 2022 withdrawal, using transparent, source‑linked indicators aggregated into three pillars: Resources, Institutional Depth, and Norm‑Setting. The site is an interactive infographic (Next.js) that communicates results and lets users explore implications.
+
+Core Research Question
+- How credible is France's leadership in global feminist diplomacy following Sweden's withdrawal, and what contradictions exist between France's official commitments and practical implementation in terms of funding, institutional depth, and international influence?
+
+Key Definitions
+- Credibility: Alignment between stated aims and what is in place across resources, institutional embedding, and external leadership (distinct from effectiveness or volume of sources).
+- Institutional Depth: Degree to which FFP is embedded across ministries and instruments (strategy, WPS NAP, gender‑budget tagging, focal points, staff training, legal codification, audits).
+- Norm‑Setting: External agenda leadership (EU/G7/UN roles, coalitions, hosted events), with attention to recency and continuity rather than legacy alone.
+
+Methodology (Scoring)
+- Indicators: Four types normalized to 0–1 in `lib/normalize.ts`:
+  - percent: linear; if a `target` is provided, normalization is (value − min) / (target − min).
+  - amount: linear between `min` and `max`.
+  - binary: true = 1, false = 0.
+  - ordinal: mid‑bin mapping (idx + 0.5) / n — soft ceiling so categories never reach 0 or 1 (prevents 100% claims).
+- Pillars: Each pillar’s score is the average of its indicators (0–1).
+- Weights (in `data/indicators.*.json`): Resources 0.4, Institutional Depth 0.35, Norm‑Setting 0.25.
+- Penalties: Optional multiplicative reductions for documented contradictions (e.g., budget cuts) in `penalties`.
+- Final credibility: 100 × (Σ pillarScoreᵢ × weightᵢ / Σ weightᵢ) × Π(1 − penaltyⱼ), rounded.
+
+“No 100%” Policy
+- Ordinal soft ceiling via mid‑bin mapping: even top categories map < 1.0.
+- UI display caps pillar percentages at 99% to avoid implying absolutes (logic in `components/PillarGauges.tsx` and `components/CredibilityPanel.tsx`). Underlying math is unchanged.
+
+France Indicators (as configured in `data/indicators.fr.json`)
+- Resources (weight 0.4):
+  - ODA with gender objectives (%, DAC 1/2): 46 vs 75 target (2022). Source: Focus 2030 (2025).
+  - ODA with gender as principal (%, DAC 2): 6 of 20 (2022). Source: Focus 2030 (2025).
+  - Direct funding to feminist CSOs (USD M): 105 of 0–500 range (2023, proxy period 2022–23). Source: Focus 2030 (2025).
+- Institutional Depth (weight 0.35):
+  - FFP strategy status: embedded (ordinal top tier). Source: FR MEAE 2025–2030.
+  - WPS NAP active: true. Source: FR WPS NAP 2021–2025.
+  - Gender‑budget tagging across ministries: partial (ordinal). Placeholder — verify cross‑ministry adoption and audits.
+  - Gender focal points coverage: 65% (percent). Placeholder — verify share across embassies/departments.
+  - Staff training coverage: 60% (percent). Placeholder — verify completion rate for required training.
+  - Legal codification depth: programming_law (ordinal). Placeholder — verify audit/oversight for top tier.
+- Norm‑Setting (weight 0.25):
+  - Role in Generation Equality Forum: co_host (ordinal). Source: GEF 2021.
+  - EU/G7 leadership on gender: chair (ordinal). Source: Kiel Institute (2019).
+  - Leadership recency: legacy (ordinal). Placeholder — confirm roles within last 3 years.
+  - Coalitions co‑led (last 3y): 1 of 5 (amount). Placeholder — enumerate and verify.
+  - Continuity of multilateral initiatives: sustained (ordinal). Proxy via continued GEF coalition work — verify breadth across fora.
+
+Penalties Defined (all false by default in `data/indicators.fr.json`)
+- Arms exports contradiction (0.1)
+- Aid budget cut (2024) (0.1)
+- Climate ODA loan dominance (2022) (0.05)
+Note: Only applied with substantiated, linkable evidence.
+
+Data Sources (examples from `data/sources.json`)
+- fr_meae_2025_strategy — France MEAE, International Strategy for a Feminist Foreign Policy 2025–2030 (2025)
+- focus2030_which_countries_gender_2025 — Focus 2030 (2025) ODA gender markers
+- ifw_kiel_g7_gender_2019 — Kiel Institute analysis of G7 gender equality (2019)
+- fr_wps_nap_2021_2025 — Women, Peace and Security NAP (2021–2025)
+- OECD DCP profiles for France (2024/2025) and Sweden gender profile (2021–22)
+
+Coverage vs Credibility
+- Coverage: % of indicators with verified, non‑placeholder sources (display only; does not change scores).
+- Credibility: Performance score from pillars and penalties.
+
+App Structure (Next.js App Router)
+- Pages (under `app/`):
+  - /briefing (`app/briefing/page.tsx`): one‑screen snapshot — overall credibility, pillar gauges with targets, contradictions, coverage.
+  - /info (`app/info/page.tsx`): narrative context for France and Sweden; three pillars and selected sources.
+  - /details (`app/details/page.tsx`): methodology, targets table, evidence gallery, worked example.
+  - /simulator (`app/simulator/page.tsx`): snapshot + CredibilityPanel; advanced views under /simulator/*.
+- Components (under `components/`):
+  - CredibilityPanel: shows pillar breakdowns and overall score, with per‑indicator source drill‑downs.
+  - PillarGauges: compact pillar bars with target comparison (display capped <100%).
+  - SourceChip, CoverageBadge, ContradictionsPanel, Tooltip, etc.
+- Logic (under `lib/`):
+  - normalize.ts: normalization rules (includes ordinal mid‑bin). 
+  - credibility.ts: pillar scoring and penalties → overall credibility.
+  - scoring.ts: separate simulator outcomes (not used in pillar credibility).
+
+Build/Run (package.json)
+- npm run dev — Start dev server at http://localhost:3000 with HMR
+- npm run build — Production build to .next/
+- npm start — Serve production build
+- npm run lint — ESLint via Next.js config
+
+Design Decisions Relevant for the Essay
+- Credibility ≠ data coverage or policy effectiveness; the model is a performance composite focused on alignment.
+- Ordinal “no 100%” soft ceiling to avoid false precision for category labels.
+- Added stricter Institutional Depth and Norm‑Setting indicators to reduce reliance on formal presence and legacy roles; emphasized recency, continuity, and implementation.
+- Targets in `data/targets.json` are descriptive for display; not used to compute pillar scores.
+
+Known Gaps / To‑Verify (placeholders marked in data)
+- Gender‑budget tagging adoption and audits across ministries.
+- Focal points coverage share across embassies/departments.
+- Staff training completion rates on gender equality.
+- Recency of leadership roles (last 3 years) and enumeration of coalitions co‑led.
+
+Suggested Essay Framing (optional prompts)
+- Open with the Sweden 2022 decision and its system‑level implications; pose France’s leadership as a credibility question rather than activity count.
+- Define credibility in one sentence; preview the three pillars and the interactive format rationale (transparency, agency, comparability).
+- Reflect on the shift from presence to depth (adding stricter indicators), the choice to avoid 100% claims, and how coverage metrics are separated from performance.
+- Acknowledge limitations (normative choices in indicators/weights; data lags; placeholders) and note future work (per‑indicator weights; richer contradictions; verified audits and recency checks).
+
+File Map for Agents
+- Data: `data/indicators.fr.json`, `data/indicators.se.json`, `data/targets.json`, `data/sources.json`
+- Logic: `lib/normalize.ts`, `lib/credibility.ts`, `lib/scoring.ts`
+- UI: `components/CredibilityPanel.tsx`, `components/PillarGauges.tsx`
+- Pages: `app/briefing/page.tsx`, `app/info/page.tsx`, `app/details/page.tsx`, `app/simulator/page.tsx`
+
+Contact Points in Code for Edits
+- To add/refine indicators: edit `data/indicators.fr.json` (add `sourceId` + remove “placeholder” from `note` when verified).
+- To change weights or pillar composition: adjust `weight` at pillar level in the same file.
+- To adjust normalization: edit `lib/normalize.ts` (e.g., ordinal mid‑bin policy).
+- To update methodology text: edit `app/details/page.tsx`.
+
+End of context.

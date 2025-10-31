@@ -1,4 +1,5 @@
 import type React from "react";
+import SourceChip from "@/components/SourceChip";
 
 function Pill({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -29,7 +30,6 @@ export default function InfoSession() {
       {/* Snapshot panel brings the indicators to the info page */}
       <div className="mb-8">
         {/** Dynamically import to keep this page lightweight **/}
-        {/* @ts-expect-error Server Component boundary for client panel */}
         <ClientCredibility />
       </div>
 
@@ -40,6 +40,10 @@ export default function InfoSession() {
           aligned with Women, Peace and Security (WPS) and OECD‑DAC gender markers
           (<a className="underline" href="https://www.diplomatie.gouv.fr/IMG/pdf/meaediplomatie_fe_ministe_de_la_france_2025_eng_v3-rev2_cle029c11.pdf" target="_blank">MEAE strategy</a>;
           WPS NAP 2021–2025). Targets include raising ODA with gender objectives to 75% and supporting feminist CSOs.
+          <div className="mt-2 flex flex-wrap gap-2">
+            <SourceChip id="fr_meae_2025_strategy" />
+            <SourceChip id="focus2030_which_countries_gender_2025" />
+          </div>
         </Pill>
         <Pill title="How France Started">
           <div id="fr-start" />
@@ -61,8 +65,8 @@ export default function InfoSession() {
       <div id="pillars" />
       <ul className="list-disc space-y-1 pl-6 text-slate-700">
         <li>
-          Resources: % of ODA with gender objectives (France ~46.4% vs 75% target); % principal (~6.3%);
-          direct support to feminist CSOs. Source: MEAE, Focus 2030.
+          Resources: % of ODA with gender objectives (France ~46% in 2022 vs 75% target), % principal (~6%), and direct support to feminist CSOs (~USD 105M, 2022–2023).
+          <span className="ml-2 inline-flex gap-2"><SourceChip id="focus2030_which_countries_gender_2025" /></span>
         </li>
         <li>
           Institutional depth: Existence of a current FFP strategy (FR: yes), WPS NAP active, and interministerial support.

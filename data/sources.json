@@ -7,6 +7,83 @@
     "url": "https://www.diplomatie.gouv.fr/IMG/pdf/meaediplomatie_fe_ministe_de_la_france_2025_eng_v3-rev2_cle029c11.pdf"
   },
   {
+    "id": "oecd_dcp_france_profile_2025",
+    "title": "Development Co-operation Profiles — France (2025)",
+    "organization": "OECD",
+    "year": 2025,
+    "url": "https://www.oecd.org/en/publications/2025/06/development-co-operation-profiles_02ffa45c/france_c200dc7f.html"
+  },
+  {
+    "id": "oecd_dcp_france_profile_2024",
+    "title": "Development Co-operation Profiles — France (2024)",
+    "organization": "OECD",
+    "year": 2024,
+    "url": "https://www.oecd.org/en/publications/development-co-operation-profiles_04b376d7-en/france_557d7c2d-en.html"
+  },
+  {
+    "id": "focus2030_which_countries_gender_2025",
+    "title": "Which countries support gender equality in their Official Development Assistance",
+    "organization": "Focus 2030",
+    "year": 2025,
+    "url": "https://focus2030.org/Which-countries-support-gender-equality-in-their-Official-Development"
+  },
+  {
+    "id": "focus2030_fr_reneges_2025",
+    "title": "France reneges on its Official Development Assistance commitments",
+    "organization": "Focus 2030",
+    "year": 2025,
+    "url": "https://focus2030.org/France-reneges-on-its-Official-Development-Assistance-commitments"
+  },
+  {
+    "id": "focus2030_french_views_2024",
+    "title": "French views on gender equality",
+    "organization": "Focus 2030",
+    "year": 2024,
+    "url": "https://focus2030.org/French-views-on-gender-equality"
+  },
+  {
+    "id": "meae_strategy_2018",
+    "title": "France’s International Strategy on Gender Equality (2018–2022)",
+    "organization": "Ministry for Europe and Foreign Affairs (France)",
+    "year": 2018,
+    "url": "https://www.diplomatie.gouv.fr/IMG/pdf/meae_strategie_-__en_cle076525.pdf"
+  },
+  {
+    "id": "ifw_kiel_g7_gender_2019",
+    "title": "Is the G7 Ready for Making Gender Equality a Global Cause?",
+    "organization": "Kiel Institute for the World Economy",
+    "year": 2019,
+    "url": "https://www.ifw-kiel.de/publications/kiel-focus/is-the-g7-ready-for-making-gender-equality-a-global-cause/"
+  },
+  {
+    "id": "un_desa_sweden_oda_gni_commitment",
+    "title": "Sweden commits ODA to LDCs / 1% GNI target",
+    "organization": "UN DESA / Government of Sweden",
+    "year": 2019,
+    "url": "https://www.un.org/esa/ffd/ffd3/commitments/commitment/sweden-commits-oda-to-ldcs.html"
+  },
+  {
+    "id": "donortracker_france_gender",
+    "title": "Donor Tracker — France: Gender",
+    "organization": "Donor Tracker",
+    "year": 2024,
+    "url": "https://donortracker.org/donor_profiles/france/gender"
+  },
+  {
+    "id": "devex_fr_aid_cuts_2024",
+    "title": "Devex Newswire: France's aid cuts stir controversy",
+    "organization": "Devex",
+    "year": 2024,
+    "url": "https://www.devex.com/news/devex-newswire-france-s-aid-cuts-stir-controversy-107595"
+  },
+  {
+    "id": "developmentaid_fr_oda_shrink_2024",
+    "title": "France's to shrink ODA (report)",
+    "organization": "DevelopmentAid",
+    "year": 2024,
+    "url": "https://www.developmentaid.org/news-stream/post/176042/frances-to-shrink-oda"
+  },
+  {
     "id": "fr_wps_nap_2021_2025",
     "title": "France National Action Plan on Women, Peace and Security 2021–2025",
     "organization": "Government of France",
@@ -40,6 +117,23 @@
     "organization": "Focus 2030 / Gender in Geopolitics Institute",
     "year": 2024,
     "url": "https://focus2030.org/Feminist-foreign-policy-where-do-France-Spain-and-Italy-stand-Summary-of-the"
+  },
+  {
+    "id": "oecd_dcp_france_cso_2022",
+    "title": "Development Co-operation Profiles — France (Civil society organisations, 2022)",
+    "organization": "OECD",
+    "year": 2022
+  },
+  {
+    "id": "oecd_dcp_sweden_gender_2021_22",
+    "title": "Development Co-operation Profiles — Sweden (Gender equality, 2021–22)",
+    "organization": "OECD",
+    "year": 2022
+  },
+  {
+    "id": "towns_2024_ia",
+    "title": "After the label? The stickiness of Sweden's Feminist Foreign Policy",
+    "organization": "International Affairs",
+    "year": 2024
   }
 ]
-
