@@ -28,9 +28,10 @@ export default function ComparePage() {
         title="What went wrong in Sweden?"
         subtitle="Sweden pioneered FFP (2014–2022) but discontinued the label in 2022. Compare France now vs Sweden’s legacy to see pillar differences and where gaps emerged."
       />
+      <div className="text-xs text-slate-600">Legend: Credibility = composite of pillars; Data coverage = % indicators with verified sources; Deltas = current vs target.</div>
       <CountryComparePanel />
       <div className="text-sm text-slate-700">
-        Explore gaps: vs target here; or switch to <Link className="underline" href="/targets">Targets</Link> and <Link className="underline" href="/evidence">Evidence</Link> for details.
+        Explore gaps: vs target here; or switch to <Link className="underline" href="/details#targets">Targets</Link> and <Link className="underline" href="/details#evidence">Evidence</Link> for details.
       </div>
       <div className="rounded border bg-white p-4">
         <div className="mb-2 flex items-center justify-between">

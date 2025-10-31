@@ -2,10 +2,13 @@ import SectionIntro from "@/components/SectionIntro";
 import CredibilityPanel from "@/components/CredibilityPanel";
 import PillarGauges from "@/components/PillarGauges";
 import fr from "@/data/indicators.fr.json" assert { type: "json" };
+import targetsData from "@/data/targets.json" assert { type: "json" };
 import { computeCredibility } from "@/lib/credibility";
 
 export default function SimulatorSnapshot() {
   const res = computeCredibility(fr as any);
+  const tmap: Record<string, number> = {};
+  (targetsData as any).pillars.forEach((t: any) => (tmap[t.id] = t.targetPct));
   return (
     <section className="grid gap-6">
       <SectionIntro
@@ -22,7 +25,7 @@ export default function SimulatorSnapshot() {
       <div className="grid gap-4">
         <div className="rounded border bg-white p-4">
           <h2 className="mb-2 font-semibold">Current Pillar Status — France</h2>
-          <PillarGauges pillars={res.pillars} />
+          <PillarGauges pillars={res.pillars} targets={tmap} />
         </div>
         <div className="rounded border bg-white p-4">
           <h2 className="mb-2 font-semibold">Credibility Snapshot</h2>

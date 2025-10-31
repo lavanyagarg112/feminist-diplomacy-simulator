@@ -1,5 +1,6 @@
 import targets from "@/data/targets.json" assert { type: "json" };
 import sources from "@/data/sources.json" assert { type: "json" };
+import fr from "@/data/indicators.fr.json" assert { type: "json" };
 import SourceChip from "@/components/SourceChip";
 
 const terms = [
@@ -15,25 +16,45 @@ export default function DetailsPage() {
     <article className="max-w-none">
       <header className="mb-6 rounded-xl bg-gradient-to-r from-violet-100 via-fuchsia-100 to-pink-100 p-6">
         <h1 className="m-0 text-2xl font-bold text-slate-900">Details</h1>
-        <p className="mt-2 max-w-3xl text-slate-700">Methodology, targets, evidence, and glossary consolidated in one place.</p>
+        <p className="mt-2 max-w-3xl text-slate-700">Methodology, targets, evidence, and glossary — consolidated and skimmable. Credibility is a performance composite; data coverage is transparency about sources.</p>
         <nav className="mt-3 text-sm text-slate-700">
           <a className="mr-4 underline" href="#methodology">Methodology</a>
           <a className="mr-4 underline" href="#targets">Targets</a>
           <a className="mr-4 underline" href="#evidence">Evidence</a>
-          <a className="underline" href="#glossary">Glossary</a>
+          <a className="mr-4 underline" href="#glossary">Glossary</a>
+          <a className="underline" href="#example">Worked Example</a>
         </nav>
       </header>
 
       <section id="methodology" className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <Card title="What this measures">
-          Credibility triangulates three pillars: Resources, Institutional Depth, and Norm‑Setting. It measures plausibility that stated aims are matched by allocations, institutionalization, and external leadership — distinct from effectiveness.
+        <Card title="Summary">
+          Credibility is a 0–100 performance composite of three pillars — Resources, Institutional Depth, and Norm‑Setting — reflecting alignment between stated aims and what’s in place. It is not data coverage or policy effectiveness.
         </Card>
-        <Card title="Normalization & Aggregation">
-          Indicators (percent/amount/binary/ordinal) are normalized to 0–1, averaged per pillar, then aggregated by weights to a 0–100 score. Contradictions apply multiplicative reductions when evidenced.
+        <Card title="How it’s calculated (5 steps)">
+          <ol className="list-decimal pl-5">
+            <li>Normalize indicators to 0–1 (percent/amount/binary/ordinal; targets steepen progress toward thresholds).</li>
+            <li>Compute each pillar as the average of its indicators.</li>
+            <li>Combine pillars by weights (Resources 0.4, Institutional Depth 0.35, Norm‑Setting 0.25).</li>
+            <li>Apply contradictions (if any) multiplicatively, using (1 − weight) per applied item.</li>
+            <li>Scale to 0–100 and round.</li>
+          </ol>
+          <details className="mt-2 text-xs text-slate-700">
+            <summary className="cursor-pointer">Show formula</summary>
+            <div className="mt-1">credibility = 100 × ( Σ pillarScoreᵢ × weightᵢ / Σ weightᵢ ) × Π(1 − penaltyⱼ)</div>
+            <div className="mt-2">Ordinal normalization uses mid‑bin mapping so categories never hit 0 or 1: score = (idx + 0.5) / n</div>
+          </details>
         </Card>
         <Card title="Limits">
-          Placeholders remain until verified; cross‑country comparisons are indicative. Targets are illustrative unless linked to policy documents.
+          Data coverage improves transparency but does not raise/lower scores. Placeholders remain until verified; cross‑country comparisons are indicative. Targets are illustrative unless linked to policy documents.
         </Card>
+      </section>
+
+      <section className="mt-8">
+        <h2 className="text-xl font-semibold text-slate-900">Coverage vs Credibility</h2>
+        <ul className="mt-2 list-disc space-y-1 pl-6 text-sm text-slate-700">
+          <li><span className="font-medium">Credibility</span>: Performance score (0–100) based on the three pillars; changes when indicators or contradictions change.</li>
+          <li><span className="font-medium">Data coverage</span>: % of indicators with verified sources; improves transparency, but does not raise or lower scores.</li>
+        </ul>
       </section>
 
       <section id="targets" className="mt-8">
@@ -86,6 +107,32 @@ export default function DetailsPage() {
         </div>
       </section>
 
+      <section id="example" className="mt-8">
+        <h2 className="text-xl font-semibold text-slate-900">Worked Example (France)</h2>
+        <div className="mt-2 grid gap-3">
+          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+            <div className="font-medium">1) Normalize an indicator</div>
+            <div>ODA with gender objectives: 46% vs target 75% → (46 − 0) / (75 − 0) = 0.61 → 61% indicator score.</div>
+          </div>
+          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+            <div className="font-medium">2) Pillar score (Resources)</div>
+            <div>Average of indicator scores (examples): 61% (DAC 1/2), 30% (DAC 2 at 6% of 20), 21% (USD 105M of 500M range) → ≈ 37%.</div>
+          </div>
+          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+            <div className="font-medium">3) Combine pillars by weights</div>
+            <div>Resources 0.4, Institutional Depth 0.35, Norm‑Setting 0.25 → weighted average of the three pillar scores.</div>
+          </div>
+          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+            <div className="font-medium">4) Apply contradictions (if any)</div>
+            <div>If an item with weight 0.1 applies, multiply by (1 − 0.1) = 0.9.</div>
+          </div>
+          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+            <div className="font-medium">5) Scale to 0–100</div>
+            <div>Round to nearest integer for the displayed credibility score.</div>
+          </div>
+        </div>
+      </section>
+
       <p className="mt-6 text-sm text-slate-600">Built for exploration. Not definitive policy advice.</p>
     </article>
   );
@@ -99,4 +146,3 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
     </section>
   );
 }
-

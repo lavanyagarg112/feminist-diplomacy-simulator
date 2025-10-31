@@ -2,6 +2,8 @@ import SectionIntro from "@/components/SectionIntro";
 import PillarGauges from "@/components/PillarGauges";
 import ContradictionsPanel from "@/components/ContradictionsPanel";
 import SourceChip from "@/components/SourceChip";
+import CoverageBadge from "@/components/CoverageBadge";
+import CredibilityInfo from "@/components/CredibilityInfo";
 import fr from "@/data/indicators.fr.json" assert { type: "json" };
 import se from "@/data/indicators.se.json" assert { type: "json" };
 import targetsData from "@/data/targets.json" assert { type: "json" };
@@ -17,6 +19,11 @@ export default function BriefingPage() {
 
   // Quick Sweden snapshot for context (legacy)
   const seRes = computeCredibility(se as any);
+  // Compute France coverage
+  const frIndCount = (fr as any).pillars.reduce((s: number, p: any) => s + p.indicators.length, 0);
+  const frWithSources = (fr as any).pillars.reduce((s: number, p: any) => s + p.indicators.filter((i: any) => !!i.sourceId && !String(i.note||"").toLowerCase().includes("placeholder")).length, 0);
+  const frCoveragePct = frIndCount ? Math.round((frWithSources / frIndCount) * 100) : 0;
+  const asOf = (fr as any).asOf;
 
   const highlightSources = [
     "fr_meae_2025_strategy",
@@ -33,15 +40,16 @@ export default function BriefingPage() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="rounded-xl border bg-white p-5">
-          <div className="text-sm text-slate-700">Overall credibility</div>
+          <div className="flex items-center gap-2 text-sm text-slate-700">Overall credibility <CredibilityInfo /></div>
           <div className="mt-1 text-3xl font-bold text-slate-900">{res.credibility}/100</div>
+          <div className="text-xs text-slate-600">As of {asOf}</div>
           <p className="mt-2 text-sm text-slate-700">
             Rationale: strongest pillar {strongest.name.toLowerCase()} and weakest {weakest.name.toLowerCase()}.
           </p>
           <div className="mt-3">
             <PillarGauges pillars={res.pillars} targets={tmap} />
           </div>
-          <div className="mt-2 text-xs text-slate-600">Badges indicate whether each pillar is on track vs its target.</div>
+          <div className="mt-2 text-xs text-slate-600">Badges indicate whether each pillar is on track vs its target. Coverage is about sources, not the score.</div>
           <div className="mt-3 flex flex-wrap gap-2 text-xs">
             <Link href="/simulator/compare" className="rounded border px-3 py-1 hover:bg-slate-50">Compare in detail</Link>
             <Link href="/details" className="rounded border px-3 py-1 hover:bg-slate-50">See details</Link>
@@ -74,11 +82,20 @@ export default function BriefingPage() {
         <div className="rounded-xl border bg-white p-5">
           <h3 className="m-0 text-base font-semibold">Evidence highlights</h3>
           <p className="mt-1 text-sm text-slate-700">Selected references used on this page.</p>
+          <div className="mt-2 flex items-center gap-2 text-xs text-slate-700">
+            <span>Data coverage:</span>
+            <CoverageBadge total={frIndCount} withSources={frWithSources} />
+          </div>
           <div className="mt-3 flex flex-wrap gap-2">
             {highlightSources.map((id) => (
               <SourceChip key={id} id={id} />
             ))}
           </div>
+          {frCoveragePct < 80 && (
+            <div className="mt-3 rounded border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800">
+              Some indicators are pending verification. Coverage {frCoveragePct}% does not change the score.
+            </div>
+          )}
           <div className="mt-3 text-sm">
             <Link href="/details#evidence" className="text-rose-700 underline">See all sources</Link>
           </div>

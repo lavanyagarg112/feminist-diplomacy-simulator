@@ -112,6 +112,9 @@ export default function DriversPage() {
   return (
     <Suspense fallback={<div />}> 
     <section className="grid gap-6 md:grid-cols-2">
+      <div className="md:col-span-2 rounded-xl bg-slate-50 p-4 text-xs text-slate-700">
+        Outcomes here are separate from the credibility score. Adjusting drivers changes projected outcomes (rights, safety, economic, diplomatic, backlash), not the credibility metric. See <a className="underline" href="/details#methodology">Details</a> for how credibility is calculated.
+      </div>
       {/* Left: Levers */}
       <div className="rounded border bg-white">
         <div className="flex flex-col gap-2 border-b px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
