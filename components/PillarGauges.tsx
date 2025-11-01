@@ -5,8 +5,8 @@ export default function PillarGauges({ pillars, targets }: { pillars: Pillar[]; 
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
       {pillars.map((p) => (
         <div key={p.id} className="rounded-lg border border-slate-200 p-3">
-          <div className="flex items-baseline justify-between">
-            <div className="text-sm font-medium text-slate-800">{p.name}</div>
+          <div className="flex items-baseline justify-between gap-2">
+            <div className="min-w-0 break-words text-sm font-medium text-slate-800">{p.name}</div>
             {(() => {
               const rawPct = Math.round(p.score * 100);
               const displayPct = Math.min(99, rawPct);

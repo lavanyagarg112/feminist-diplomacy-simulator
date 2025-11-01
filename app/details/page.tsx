@@ -17,11 +17,11 @@ export default function DetailsPage() {
       <header className="mb-6 rounded-xl bg-gradient-to-r from-violet-100 via-fuchsia-100 to-pink-100 p-6">
         <h1 className="m-0 text-2xl font-bold text-slate-900">Details</h1>
         <p className="mt-2 max-w-3xl text-slate-700">Methodology, targets, evidence, and glossary — consolidated and skimmable. Credibility is a performance composite; data coverage is transparency about sources.</p>
-        <nav className="mt-3 text-sm text-slate-700">
-          <a className="mr-4 underline" href="#methodology">Methodology</a>
-          <a className="mr-4 underline" href="#targets">Targets</a>
-          <a className="mr-4 underline" href="#evidence">Evidence</a>
-          <a className="mr-4 underline" href="#glossary">Glossary</a>
+        <nav className="mt-3 flex flex-wrap items-center gap-3 text-sm text-slate-700">
+          <a className="underline" href="#methodology">Methodology</a>
+          <a className="underline" href="#targets">Targets</a>
+          <a className="underline" href="#evidence">Evidence</a>
+          <a className="underline" href="#glossary">Glossary</a>
           <a className="underline" href="#example">Worked Example</a>
         </nav>
       </header>
@@ -68,8 +68,8 @@ export default function DetailsPage() {
             <span className="font-medium">Norm‑setting — 80% (2025)</span>: Strong, sustained agenda‑setting anchored to G7‑2019 and GEF, with recent roles and ≥3 co‑led coalitions, and continuity across fora.
           </div>
         </div>
-        <div className="mt-3 overflow-hidden rounded border bg-white">
-          <table className="w-full text-sm">
+        <div className="mt-3 overflow-x-auto rounded border bg-white">
+          <table className="w-full min-w-[640px] text-sm">
             <thead className="bg-slate-50 text-left text-slate-700">
               <tr>
                 <th className="px-4 py-2">Pillar</th>
@@ -84,7 +84,7 @@ export default function DetailsPage() {
                   <td className="px-4 py-2 font-medium">{t.label}</td>
                   <td className="px-4 py-2">{t.targetPct}%{t.year ? ` (${t.year})` : ""}</td>
                   <td className="px-4 py-2">{t.sourceId ? <SourceChip id={t.sourceId} /> : <span className="text-slate-500">—</span>}</td>
-                  <td className="px-4 py-2 text-slate-700">{t.note || ""}</td>
+                  <td className="px-4 py-2 text-slate-700 break-words">{t.note || ""}</td>
                 </tr>
               ))}
             </tbody>
@@ -134,24 +134,24 @@ export default function DetailsPage() {
 
       <section id="example" className="mt-8">
         <h2 className="text-xl font-semibold text-slate-900">Worked Example (France)</h2>
-        <div className="mt-2 grid gap-3">
-          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+        <div className="mt-2 grid gap-3 break-words">
+          <div className="rounded border bg-white p-3 text-sm text-slate-700 break-words">
             <div className="font-medium">1) Normalize an indicator</div>
             <div>ODA with gender objectives: 46% vs target 75% → (46 − 0) / (75 − 0) = 0.61 → 61% indicator score.</div>
           </div>
-          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+          <div className="rounded border bg-white p-3 text-sm text-slate-700 break-words">
             <div className="font-medium">2) Pillar score (Resources)</div>
             <div>Average of indicator scores (examples): 61% (DAC 1/2), 30% (DAC 2 at 6% of 20), 21% (USD 105M of 500M range) → ≈ 37%.</div>
           </div>
-          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+          <div className="rounded border bg-white p-3 text-sm text-slate-700 break-words">
             <div className="font-medium">3) Combine pillars by weights</div>
             <div>Resources 0.4, Institutional Depth 0.35, Norm‑Setting 0.25 → weighted average of the three pillar scores.</div>
           </div>
-          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+          <div className="rounded border bg-white p-3 text-sm text-slate-700 break-words">
             <div className="font-medium">4) Apply contradictions (if any)</div>
             <div>If an item with weight 0.1 applies, multiply by (1 − 0.1) = 0.9.</div>
           </div>
-          <div className="rounded border bg-white p-3 text-sm text-slate-700">
+          <div className="rounded border bg-white p-3 text-sm text-slate-700 break-words">
             <div className="font-medium">5) Scale to 0–100</div>
             <div>Round to nearest integer for the displayed credibility score.</div>
           </div>

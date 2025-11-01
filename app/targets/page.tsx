@@ -17,8 +17,8 @@ export default function TargetsPage() {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden rounded border bg-white">
-        <table className="w-full text-sm">
+      <div className="overflow-x-auto rounded border bg-white">
+        <table className="w-full min-w-[640px] text-sm">
           <thead className="bg-slate-50 text-left text-slate-700">
             <tr>
               <th className="px-4 py-2">Pillar</th>
@@ -33,7 +33,7 @@ export default function TargetsPage() {
                 <td className="px-4 py-2 font-medium">{t.label}</td>
                 <td className="px-4 py-2">{t.targetPct}%{t.year ? ` (${t.year})` : ""}</td>
                 <td className="px-4 py-2">{t.sourceId ? <SourceChip id={t.sourceId} /> : <span className="text-slate-500">—</span>}</td>
-                <td className="px-4 py-2 text-slate-700">{t.note || ""}</td>
+                <td className="px-4 py-2 text-slate-700 break-words">{t.note || ""}</td>
               </tr>
             ))}
           </tbody>

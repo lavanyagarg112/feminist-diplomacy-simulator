@@ -4,3 +4,5 @@
 
 html, body { height: 100%; }
 
+/* Prevent long lines from clipping on narrow screens */
+.force-wrap { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }

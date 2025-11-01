@@ -19,7 +19,7 @@ export default function OutcomeChart({ data, baseline }: { data: Outcomes; basel
 
   return (
     <div>
-      <div className="h-72 w-full">
+      <div className="h-64 w-full sm:h-72">
         <ResponsiveContainer>
           <RadarChart data={chartData}>
             <PolarGrid />
