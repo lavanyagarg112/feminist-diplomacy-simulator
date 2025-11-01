@@ -22,7 +22,7 @@ export default function CountryComparePanel() {
     <div className="grid gap-4 md:grid-cols-2">
       <div className="rounded border bg-white p-4">
         <div className="mb-2 flex items-center justify-between">
-          <h3 className="font-semibold">France — Now <span className="ml-2 text-xs font-normal text-slate-600">(as of {frAsOf})</span></h3>
+          <h3 className="font-semibold">France — Now <span className="ml-2 text-xs font-normal text-slate-600">(compiled {frAsOf})</span></h3>
           <div className="flex items-center gap-2 text-sm text-slate-700">Credibility <CredibilityInfo /> {frRes.credibility}/100</div>
         </div>
         <PillarGauges pillars={frRes.pillars} targets={tmap} />

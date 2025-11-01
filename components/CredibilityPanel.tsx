@@ -68,7 +68,7 @@ export default function CredibilityPanel({ compact = false, country: forcedCount
                     <li key={i.id} className="flex items-start justify-between gap-3 text-sm text-slate-700">
                       <span className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="truncate" title={i.name}>{i.name}</span>
+                          <span className="break-words whitespace-normal sm:truncate" title={i.name}>{i.name}</span>
                           <Tooltip label="Details">
                             <SourceDetails id={i.sourceId as string} note={i.note} lookup={byId} indicatorName={i.name} />
                           </Tooltip>
@@ -95,12 +95,12 @@ export default function CredibilityPanel({ compact = false, country: forcedCount
         <h2 className="text-lg font-semibold">Credibility Snapshot</h2>
         {!hideCountrySelector && <CountrySelector country={country} onChange={(c) => { if (!forcedCountry) setCountry(c); }} />}
       </div>
-      <p className="text-sm text-slate-600">Computed from indicators with transparent sources.</p>
+      <p className="force-wrap text-sm text-slate-600">Computed from indicators with transparent sources.</p>
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
         {result.pillars.map((p) => (
           <div key={p.id} className="rounded-lg border border-slate-200 p-3">
             <div className="flex items-baseline justify-between">
-              <div className="text-sm font-medium text-slate-800">{p.name}</div>
+              <div className="min-w-0 break-words text-sm font-medium text-slate-800">{p.name}</div>
               <div className="text-sm font-semibold text-slate-900">{Math.round(p.score * 100)}%</div>
             </div>
             <ul className="mt-2 space-y-1">
@@ -108,13 +108,13 @@ export default function CredibilityPanel({ compact = false, country: forcedCount
                 <li key={i.id} className="flex items-start justify-between gap-3 text-sm text-slate-700">
                   <span className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="truncate" title={i.name}>{i.name}</span>
+                      <span className="break-words whitespace-normal sm:truncate" title={i.name}>{i.name}</span>
                       <Tooltip label="Details">
                         <SourceDetails id={i.sourceId as string} note={i.note} lookup={byId} indicatorName={i.name} />
                       </Tooltip>
                     </div>
                     {"descriptor" in i && (i as any).descriptor && (
-                      <div className="mt-0.5 text-xs text-slate-500">{(i as any).descriptor}</div>
+                      <div className="mt-0.5 break-words text-xs text-slate-500">{(i as any).descriptor}</div>
                     )}
                     {renderTargetBadge(i as any)}
                   </span>

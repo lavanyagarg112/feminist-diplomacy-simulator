@@ -13,17 +13,16 @@
       "label": "Institutional Depth",
       "targetPct": 75,
       "year": 2025,
-      "sourceId": "meae_strategy_2018",
-      "note": "Cross-cutting mainstreaming and inter-ministerial embedding; illustrative pillar target"
+      "sourceId": "fr_meae_2025_strategy",
+      "note": "France now mandates embedded FFP, WPS NAP, and partial gender-budget tagging with ongoing increase in focal coverage."
     },
     {
       "id": "norm_setting",
       "label": "Norm-setting",
-      "targetPct": 70,
-      "year": 2019,
-      "sourceId": "ifw_kiel_g7_gender_2019",
-      "note": "G7 Presidency (2019) legacy; illustrative pillar target"
+      "targetPct": 80,
+      "year": 2025,
+      "sourceId": "gef_fr_g7_biarritz_2019_2025",
+      "note": "France sustained GEF co-hosting, led G7 gender (2019), and co-led 3+ norm-setting coalitions in past 3 years."
     }
   ]
 }
-

@@ -18,16 +18,19 @@ export default function OutcomeChart({ data, baseline }: { data: Outcomes; basel
   }));
 
   return (
-    <div className="h-72 w-full">
-      <ResponsiveContainer>
-        <RadarChart data={chartData}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <Tooltip />
-          {baseline && <Radar dataKey="base" stroke="#94a3b8" fill="#94a3b8" fillOpacity={0.2} />}
-          <Radar dataKey="current" stroke="#0f172a" fill="#0f172a" fillOpacity={0.3} />
-        </RadarChart>
-      </ResponsiveContainer>
+    <div>
+      <div className="h-64 w-full sm:h-72">
+        <ResponsiveContainer>
+          <RadarChart data={chartData}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="subject" />
+            <Tooltip />
+            {baseline && <Radar dataKey="base" stroke="#94a3b8" fill="#94a3b8" fillOpacity={0.2} />}
+            <Radar dataKey="current" stroke="#0f172a" fill="#0f172a" fillOpacity={0.3} />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="mt-2 text-xs text-slate-600">Note: For backlash, lower is better.</div>
     </div>
   );
 }

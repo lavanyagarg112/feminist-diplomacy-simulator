@@ -36,13 +36,14 @@ export default function BriefingPage() {
       <SectionIntro
         title="How credible is France’s leadership?"
         subtitle="A concise, sourced snapshot with the three pillars, contradictions, and quick context vs Sweden."
+        hint="Start with Compare to see pillar gaps, then explore Drivers & Trade‑offs."
       />
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="rounded-xl border bg-white p-5">
           <div className="flex items-center gap-2 text-sm text-slate-700">Overall credibility <CredibilityInfo /></div>
           <div className="mt-1 text-3xl font-bold text-slate-900">{res.credibility}/100</div>
-          <div className="text-xs text-slate-600">As of {asOf}</div>
+          <div className="text-xs text-slate-600">Compiled in {asOf}</div>
           <p className="mt-2 text-sm text-slate-700">
             Rationale: strongest pillar {strongest.name.toLowerCase()} and weakest {weakest.name.toLowerCase()}.
           </p>
@@ -51,15 +52,16 @@ export default function BriefingPage() {
           </div>
           <div className="mt-2 text-xs text-slate-600">Badges indicate whether each pillar is on track vs its target. Coverage is about sources, not the score.</div>
           <div className="mt-3 flex flex-wrap gap-2 text-xs">
-            <Link href="/simulator/compare" className="rounded border px-3 py-1 hover:bg-slate-50">Compare in detail</Link>
-            <Link href="/details" className="rounded border px-3 py-1 hover:bg-slate-50">See details</Link>
-            <Link href="/simulator/drivers" className="rounded border px-3 py-1 hover:bg-slate-50">Explore scenarios (advanced)</Link>
+            <Link href="/simulator/compare" className="rounded border border-slate-900 bg-slate-900 px-3 py-1 text-white hover:bg-slate-800">Start with Compare</Link>
+            <Link href="/simulator/drivers" className="rounded border px-3 py-1 hover:bg-slate-50">Drivers & Trade‑offs</Link>
+            <Link href="/details" className="rounded border px-3 py-1 hover:bg-slate-50">Details</Link>
           </div>
         </div>
 
         <div className="rounded-xl border bg-white p-5">
           <h3 className="m-0 text-base font-semibold">Contradictions</h3>
-          <p className="mt-1 text-sm text-slate-700">Evidence‑based risks that can reduce credibility when applied.</p>
+          <p className="mt-1 text-sm text-slate-700">Documented contradictions (when substantiated) reduce credibility via small, multiplicative penalties. Items are off by default until verified. Linked notes cite the rationale.</p>
+          <p className="mt-1 text-xs text-slate-600">Learn how penalties are applied in <a className="underline" href="/details#methodology">Methodology</a>.</p>
           <div className="mt-3">
             <ContradictionsPanel penalties={res.penalties} />
           </div>
@@ -75,9 +77,9 @@ export default function BriefingPage() {
           </div>
           <div className="mt-2 text-xs text-slate-600">Credibility {seRes.credibility}/100</div>
           <div className="mt-3">
-            <Link href="/simulator/compare" className="rounded border px-3 py-1 text-xs hover:bg-slate-50">Open Compare</Link>
+            <Link href="/simulator/compare" className="rounded border border-slate-900 bg-slate-900 px-3 py-1 text-xs text-white hover:bg-slate-800">Open Compare</Link>
           </div>
-        </div>
+      </div>
 
         <div className="rounded-xl border bg-white p-5">
           <h3 className="m-0 text-base font-semibold">Evidence highlights</h3>
