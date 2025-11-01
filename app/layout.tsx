@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import HeaderNav from "@/components/HeaderNav";
+import ChatLauncher from "@/components/ChatLauncher";
 import type { ReactNode } from "react";
 
 export const metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <footer className="mx-auto max-w-5xl px-4 py-6 text-xs text-slate-500">
           Built for exploration. Not definitive policy advice.
         </footer>
+        <ChatLauncher />
       </body>
     </html>
   );
