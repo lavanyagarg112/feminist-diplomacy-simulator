@@ -12,7 +12,34 @@ type Preset = {
   name: string;
   description: string;
   apply: (cfg: any) => any;
+  revert: (cfg: any, baseline: any) => any;
 };
+
+function revertIndicators(
+  cfg: any,
+  baseline: any,
+  pillarId: string,
+  indicatorIds: string[]
+) {
+  return {
+    ...cfg,
+    pillars: cfg.pillars.map((p: any) =>
+      p.id !== pillarId
+        ? p
+        : {
+            ...p,
+            indicators: p.indicators.map((i: any) => {
+              if (!indicatorIds.includes(i.id)) return i;
+              const basePillar = (baseline.pillars as any[]).find((bp) => bp.id === pillarId);
+              const baseInd = basePillar?.indicators.find((bi: any) => bi.id === i.id);
+              if (!baseInd) return i;
+              // restore only the value field; keep other meta as-is
+              return { ...i, value: baseInd.value };
+            }),
+          }
+    ),
+  };
+}
 
 const presets: Preset[] = [
   {
@@ -35,6 +62,11 @@ const presets: Preset[] = [
             }
       ),
     }),
+    revert: (cfg, baseline) => revertIndicators(cfg, baseline, "resources", [
+      "oda_gender_share",
+      "oda_principal",
+      "funding_feminist_csos",
+    ]),
   },
   {
     id: "institutional_deepen",
@@ -47,10 +79,24 @@ const presets: Preset[] = [
           ? p
           : {
               ...p,
-              indicators: p.indicators.map((i: any) => (i.id === "ffp_strategy_status" ? { ...i, value: "embedded" } : i)),
+              indicators: p.indicators.map((i: any) => {
+                if (i.id === "ffp_strategy_status") return { ...i, value: "embedded" };
+                if (i.id === "gender_budget_tagging_coverage") return { ...i, value: "full_audited" };
+                if (i.id === "gender_focal_points_coverage") return { ...i, value: Math.max(Number(i.value || 0), 85) };
+                if (i.id === "staff_training_coverage") return { ...i, value: Math.max(Number(i.value || 0), 85) };
+                if (i.id === "legal_codonization_depth") return { ...i, value: "programming_law_audited" };
+                return i;
+              }),
             }
       ),
     }),
+    revert: (cfg, baseline) => revertIndicators(cfg, baseline, "institutional_depth", [
+      "ffp_strategy_status",
+      "gender_budget_tagging_coverage",
+      "gender_focal_points_coverage",
+      "staff_training_coverage",
+      "legal_codonization_depth",
+    ]),
   },
   {
     id: "norms_lead",
@@ -61,9 +107,24 @@ const presets: Preset[] = [
       pillars: cfg.pillars.map((p: any) =>
         p.id !== "norm_setting"
           ? p
-          : { ...p, indicators: p.indicators.map((i: any) => (i.id === "eu_g7_leadership" ? { ...i, value: "chair" } : i)) }
+          : {
+              ...p,
+              indicators: p.indicators.map((i: any) => {
+                if (i.id === "eu_g7_leadership") return { ...i, value: "chair" };
+                if (i.id === "leadership_recency") return { ...i, value: "recent" };
+                if (i.id === "coalition_copresidencies_last3y") return { ...i, value: Math.max(Number(i.value || 0), 4) };
+                if (i.id === "multilateral_initiatives_continuity") return { ...i, value: "sustained" };
+                return i;
+              }),
+            }
       ),
     }),
+    revert: (cfg, baseline) => revertIndicators(cfg, baseline, "norm_setting", [
+      "eu_g7_leadership",
+      "leadership_recency",
+      "coalition_copresidencies_last3y",
+      "multilateral_initiatives_continuity",
+    ]),
   },
 ];
 
@@ -76,10 +137,10 @@ export default function PrescriptionsPage() {
     const p = presets.find((x) => x.id === presetId);
     if (!p) return;
     setCfg((c: any) => p.apply(c));
-    setActive(p.id);
+    setEnabled((e) => ({ ...e, [p.id]: true }));
   }, []);
   const [cfg, setCfg] = useState<any>(fr);
-  const [active, setActive] = useState<string | null>(null);
+  const [enabled, setEnabled] = useState<Record<string, boolean>>({});
   const base = computeCredibility(fr as any);
   const proj = computeCredibility(cfg as any);
   // Data coverage remains the same as France baseline unless indicators change
@@ -106,7 +167,7 @@ export default function PrescriptionsPage() {
                 className="rounded border px-3 py-1 text-sm hover:bg-slate-50"
                 onClick={() => {
                   setCfg((c: any) => p.apply(c));
-                  setActive(p.id);
+                  setEnabled((e) => ({ ...e, [p.id]: true }));
                 }}
               >
                 Apply
@@ -114,14 +175,14 @@ export default function PrescriptionsPage() {
               <button
                 className="rounded border px-3 py-1 text-sm hover:bg-slate-50"
                 onClick={() => {
-                  setCfg(fr as any);
-                  setActive(null);
+                  setCfg((c: any) => p.revert(c, fr as any));
+                  setEnabled((e) => ({ ...e, [p.id]: false }));
                 }}
               >
                 Unselect
               </button>
             </div>
-            {active === p.id && <div className="mt-2 text-xs text-emerald-700">Applied</div>}
+            {enabled[p.id] && <div className="mt-2 text-xs text-emerald-700">Applied</div>}
           </div>
         ))}
       </div>
