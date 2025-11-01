@@ -24,7 +24,7 @@ export default function SimulatorSnapshot() {
           exist between official commitments and practical implementation in funding, institutional depth, and international influence?
         </p>
       </div>
-      <div className="force-wrap grid gap-4 md:grid-cols-2">
+      <div className="force-wrap grid gap-4">
         <div className="force-wrap rounded border bg-white p-4">
           <h2 className="mb-2 font-semibold">Current Pillar Status — France</h2>
           <PillarGauges pillars={res.pillars} targets={tmap} />
