@@ -7,46 +7,11 @@
     "url": "https://www.diplomatie.gouv.fr/IMG/pdf/meaediplomatie_fe_ministe_de_la_france_2025_eng_v3-rev2_cle029c11.pdf"
   },
   {
-    "id": "oecd_dcp_france_profile_2025",
-    "title": "Development Co-operation Profiles — France (2025)",
-    "organization": "OECD",
-    "year": 2025,
-    "url": "https://www.oecd.org/en/publications/2025/06/development-co-operation-profiles_02ffa45c/france_c200dc7f.html"
-  },
-  {
-    "id": "oecd_dcp_france_profile_2024",
-    "title": "Development Co-operation Profiles — France (2024)",
-    "organization": "OECD",
-    "year": 2024,
-    "url": "https://www.oecd.org/en/publications/development-co-operation-profiles_04b376d7-en/france_557d7c2d-en.html"
-  },
-  {
     "id": "focus2030_which_countries_gender_2025",
     "title": "Which countries support gender equality in their Official Development Assistance",
     "organization": "Focus 2030",
     "year": 2025,
     "url": "https://focus2030.org/Which-countries-support-gender-equality-in-their-Official-Development"
-  },
-  {
-    "id": "focus2030_fr_reneges_2025",
-    "title": "France reneges on its Official Development Assistance commitments",
-    "organization": "Focus 2030",
-    "year": 2025,
-    "url": "https://focus2030.org/France-reneges-on-its-Official-Development-Assistance-commitments"
-  },
-  {
-    "id": "focus2030_french_views_2024",
-    "title": "French views on gender equality",
-    "organization": "Focus 2030",
-    "year": 2024,
-    "url": "https://focus2030.org/French-views-on-gender-equality"
-  },
-  {
-    "id": "meae_strategy_2018",
-    "title": "France’s International Strategy on Gender Equality (2018–2022)",
-    "organization": "Ministry for Europe and Foreign Affairs (France)",
-    "year": 2018,
-    "url": "https://www.diplomatie.gouv.fr/IMG/pdf/meae_strategie_-__en_cle076525.pdf"
   },
   {
     "id": "ifw_kiel_g7_gender_2019",
@@ -56,39 +21,11 @@
     "url": "https://www.ifw-kiel.de/publications/kiel-focus/is-the-g7-ready-for-making-gender-equality-a-global-cause/"
   },
   {
-    "id": "un_desa_sweden_oda_gni_commitment",
-    "title": "Sweden commits ODA to LDCs / 1% GNI target",
-    "organization": "UN DESA / Government of Sweden",
-    "year": 2019,
-    "url": "https://www.un.org/esa/ffd/ffd3/commitments/commitment/sweden-commits-oda-to-ldcs.html"
-  },
-  {
-    "id": "donortracker_france_gender",
-    "title": "Donor Tracker — France: Gender",
-    "organization": "Donor Tracker",
-    "year": 2024,
-    "url": "https://donortracker.org/donor_profiles/france/gender"
-  },
-  {
-    "id": "devex_fr_aid_cuts_2024",
-    "title": "Devex Newswire: France's aid cuts stir controversy",
-    "organization": "Devex",
-    "year": 2024,
-    "url": "https://www.devex.com/news/devex-newswire-france-s-aid-cuts-stir-controversy-107595"
-  },
-  {
-    "id": "developmentaid_fr_oda_shrink_2024",
-    "title": "France's to shrink ODA (report)",
-    "organization": "DevelopmentAid",
-    "year": 2024,
-    "url": "https://www.developmentaid.org/news-stream/post/176042/frances-to-shrink-oda"
-  },
-  {
     "id": "fr_wps_nap_2021_2025",
-    "title": "France National Action Plan on Women, Peace and Security 2021–2025",
+    "title": "France’s 3rd National Action Plan 2021–2025 (Women, Peace and Security)",
     "organization": "Government of France",
     "year": 2021,
-    "url": "https://www.diplomatie.gouv.fr/en/french-foreign-policy/human-rights/women-peace-and-security/"
+    "url": "https://www.diplomatie.gouv.fr/IMG/pdf/pna_eng_vf_cle0c99c8.pdf"
   },
   {
     "id": "swe_ffp_handbook_2018",
@@ -102,7 +39,7 @@
     "title": "Statement on discontinuing the feminist foreign policy label",
     "organization": "Government Offices of Sweden",
     "year": 2022,
-    "url": "https://www.government.se/press-releases/"
+    "url": "https://www.government.se/speeches/2022/06/statement-of-foreign-policy/"
   },
   {
     "id": "gef_2021",
@@ -112,28 +49,74 @@
     "url": "https://forum.generationequality.org/"
   },
   {
-    "id": "focus2030_2024",
-    "title": "Feminist foreign policy: where do France, Spain and Italy stand?",
-    "organization": "Focus 2030 / Gender in Geopolitics Institute",
-    "year": 2024,
-    "url": "https://focus2030.org/Feminist-foreign-policy-where-do-France-Spain-and-Italy-stand-Summary-of-the"
+    "id": "gef_fr_g7_biarritz_2019_2025",
+    "title": "G7 gender leadership (2019) and Generation Equality commitments (2021–2025)",
+    "organization": "France Diplomatie / UN Women",
+    "year": 2025,
+    "url": "https://forum.generationequality.org/generation-equality-forum-paris"
   },
   {
-    "id": "oecd_dcp_france_cso_2022",
-    "title": "Development Co-operation Profiles — France (Civil society organisations, 2022)",
-    "organization": "OECD",
-    "year": 2022
+    "id": "fr_eige_gbtag_2025",
+    "title": "Gender Mainstreaming — France",
+    "organization": "EIGE",
+    "year": 2025,
+    "url": "https://eige.europa.eu/gender-mainstreaming/countries/france?language_content_entity=en"
+  },
+  {
+    "id": "fr_meae_focal_points_2024",
+    "title": "Feminist Diplomacy – Gender equality action plan (11 Sept 2024)",
+    "organization": "France Diplomatie",
+    "year": 2024,
+    "url": "https://www.diplomatie.gouv.fr/en/french-foreign-policy/feminist-diplomacy/news/article/feminist-diplomacy-gender-equality-action-plan-11-sept-2024"
+  },
+  {
+    "id": "fr_hr_training_2024",
+    "title": "Feminist Diplomacy – Gender equality action plan (11 Sept 2024)",
+    "organization": "France Diplomatie",
+    "year": 2024,
+    "url": "https://www.diplomatie.gouv.fr/en/french-foreign-policy/feminist-diplomacy/news/article/feminist-diplomacy-gender-equality-action-plan-11-sept-2024"
+  },
+  {
+    "id": "fr_codification_audit_2024",
+    "title": "Gender Mainstreaming — France",
+    "organization": "EIGE",
+    "year": 2025,
+    "url": "https://eige.europa.eu/gender-mainstreaming/countries/france?language_content_entity=en"
+  },
+  {
+    "id": "fr_recent_leadership_2025",
+    "title": "France's international strategy for feminist diplomacy (2025-2030)",
+    "organization": "France Diplomatie",
+    "year": 2025,
+    "url": "https://cy.ambafrance.org/France-s-international-strategy-for-feminist-diplomacy-2025-2030"
+  },
+  {
+    "id": "fr_coalitions_2023_2025",
+    "title": "France's international strategy for feminist diplomacy (2025-2030)",
+    "organization": "France Diplomatie",
+    "year": 2025,
+    "url": "https://cy.ambafrance.org/France-s-international-strategy-for-feminist-diplomacy-2025-2030"
   },
   {
     "id": "oecd_dcp_sweden_gender_2021_22",
     "title": "Development Co-operation Profiles — Sweden (Gender equality, 2021–22)",
     "organization": "OECD",
-    "year": 2022
+    "year": 2022,
+    "url": "https://www.oecd.org/en/publications/development-co-operation-profiles_04b376d7-en/sweden_557d7c2d-en.html"
+  }
+  ,
+  {
+    "id": "fr_arms_export_contradiction_2024",
+    "title": "Report to Parliament on France's Arms Exports 2023",
+    "organization": "Ministère des Armées",
+    "year": 2023,
+    "url": "https://www.defense.gouv.fr/sites/default/files/ministere-armees/Report%20to%20Parliament%20on%20France%20s%20Arms%20Exports.pdf"
   },
   {
-    "id": "towns_2024_ia",
-    "title": "After the label? The stickiness of Sweden's Feminist Foreign Policy",
-    "organization": "International Affairs",
-    "year": 2024
+    "id": "fr_arms_export_contradiction_ngo_2023",
+    "title": "France's extraterritorial obligations under the International Covenant on Civil and Political Rights (ICCPR)",
+    "organization": "WILPF & ECCHR",
+    "year": 2023,
+    "url": "https://www.ecchr.eu/fileadmin/Juristische_Dokumente/ECCHR_WILPF_FRANCE_ICCPR.pdf"
   }
 ]

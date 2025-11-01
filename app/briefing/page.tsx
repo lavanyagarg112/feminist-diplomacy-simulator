@@ -43,7 +43,7 @@ export default function BriefingPage() {
         <div className="rounded-xl border bg-white p-5">
           <div className="flex items-center gap-2 text-sm text-slate-700">Overall credibility <CredibilityInfo /></div>
           <div className="mt-1 text-3xl font-bold text-slate-900">{res.credibility}/100</div>
-          <div className="text-xs text-slate-600">As of {asOf}</div>
+          <div className="text-xs text-slate-600">Compiled in {asOf}</div>
           <p className="mt-2 text-sm text-slate-700">
             Rationale: strongest pillar {strongest.name.toLowerCase()} and weakest {weakest.name.toLowerCase()}.
           </p>
@@ -60,7 +60,8 @@ export default function BriefingPage() {
 
         <div className="rounded-xl border bg-white p-5">
           <h3 className="m-0 text-base font-semibold">Contradictions</h3>
-          <p className="mt-1 text-sm text-slate-700">Evidence‑based risks that can reduce credibility when applied.</p>
+          <p className="mt-1 text-sm text-slate-700">Documented contradictions (when substantiated) reduce credibility via small, multiplicative penalties. Items are off by default until verified. Linked notes cite the rationale.</p>
+          <p className="mt-1 text-xs text-slate-600">Learn how penalties are applied in <a className="underline" href="/details#methodology">Methodology</a>.</p>
           <div className="mt-3">
             <ContradictionsPanel penalties={res.penalties} />
           </div>

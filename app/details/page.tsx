@@ -59,6 +59,15 @@ export default function DetailsPage() {
 
       <section id="targets" className="mt-8">
         <h2 className="text-xl font-semibold text-slate-900">Targets</h2>
+        <div className="mt-2 rounded-lg bg-slate-50 p-3 text-sm text-slate-700">
+          How we chose targets: Pillar targets are demanding, interpretable thresholds that signal "on track" without assuming perfection. They anchor to salient policy moments/documents and map to realistic combinations of underlying indicators.
+          <div className="mt-1">
+            <span className="font-medium">Institutional Depth — 75% (2025)</span>: Embedded, cross‑ministerial FFP by mid‑decade (FFP 2025–2030; WPS NAP). Interpreted as embedded strategy + partial GB‑tagging/training/focal‑point coverage + programming law.
+          </div>
+          <div>
+            <span className="font-medium">Norm‑setting — 80% (2025)</span>: Strong, sustained agenda‑setting anchored to G7‑2019 and GEF, with recent roles and ≥3 co‑led coalitions, and continuity across fora.
+          </div>
+        </div>
         <div className="mt-3 overflow-hidden rounded border bg-white">
           <table className="w-full text-sm">
             <thead className="bg-slate-50 text-left text-slate-700">
@@ -86,13 +95,29 @@ export default function DetailsPage() {
       <section id="evidence" className="mt-8">
         <h2 className="text-xl font-semibold text-slate-900">Evidence</h2>
         <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {src.map((s) => (
-            <a key={s.id} href={s.url} target="_blank" className="rounded border bg-white p-4 hover:bg-slate-50">
-              <div className="text-sm font-semibold text-slate-900">{s.title}</div>
-              <div className="mt-1 text-xs text-slate-700">{s.organization} • {s.year}</div>
-              <div className="mt-2 text-xs text-slate-600">ID: <code>{s.id}</code></div>
-            </a>
-          ))}
+          {(() => {
+            // Group by URL if present; otherwise by title+org+year
+            const groups = new Map<string, any[]>();
+            (src as any[]).forEach((s) => {
+              const key = (s.url && String(s.url).toLowerCase()) || `${String(s.title).toLowerCase()}|${String(s.organization).toLowerCase()}|${String(s.year)}`;
+              const arr = groups.get(key) || [];
+              arr.push(s);
+              groups.set(key, arr);
+            });
+            return Array.from(groups.values()).map((arr: any[]) => {
+              const s = arr[0];
+              const href = s.url || `https://www.google.com/search?q=${encodeURIComponent(`${s.title} ${s.organization} ${s.year}`)}`;
+              const title = s.url ? `${s.organization} • ${s.year}` : `${s.organization} • ${s.year} (no direct URL; opens search)`;
+              const ids = arr.map((x) => x.id);
+              return (
+                <a key={ids.join("|")} href={href} target="_blank" rel="noopener noreferrer" className="rounded border bg-white p-4 hover:bg-slate-50" title={title}>
+                  <div className="text-sm font-semibold text-slate-900">{s.title}</div>
+                  <div className="mt-1 text-xs text-slate-700">{s.organization} • {s.year}</div>
+                  <div className="mt-2 text-xs text-slate-600">IDs: {ids.map((id: string) => (<code key={id} className="mr-1">{id}</code>))}</div>
+                </a>
+              );
+            });
+          })()}
         </div>
       </section>
 

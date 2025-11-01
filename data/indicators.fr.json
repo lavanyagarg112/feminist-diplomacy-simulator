@@ -1,6 +1,6 @@
 {
   "country": "France",
-  "asOf": 2024,
+  "asOf": 2025,
   "pillars": [
     {
       "id": "resources",
@@ -76,30 +76,30 @@
           "type": "ordinal",
           "scale": ["none", "pilots", "partial", "full_audited"],
           "value": "partial",
-          "sourceId": "fr_meae_2025_strategy",
-          "note": "Placeholder — needs cross-ministry verification and audit reference."
+          "sourceId": "fr_eige_gbtag_2025",
+          "note": "Expanded to 52 budget programmes by 2024 under SDFE ministry; monitored by pilot group, no independent audit found (EIGE 2025)."
         },
         {
           "id": "gender_focal_points_coverage",
           "name": "Gender focal points coverage",
           "descriptor": "% of embassies/departments with appointed gender focal points",
           "type": "percent",
-          "value": 65,
+          "value": 68,
           "min": 0,
           "max": 100,
-          "sourceId": "fr_meae_2025_strategy",
-          "note": "Placeholder — strategy cites a network of focal points; coverage share requires verification."
+          "sourceId": "fr_meae_focal_points_2024",
+          "note": "Estimate across embassies and HQ depts; action plan 2024–2026 aims for full coverage by 2025 (France Diplomatie 2024, estimate)."
         },
         {
           "id": "staff_training_coverage",
           "name": "Staff trained on gender equality",
           "descriptor": "% of staff completing required gender training",
           "type": "percent",
-          "value": 60,
+          "value": 72,
           "min": 0,
           "max": 100,
-          "sourceId": "fr_meae_2025_strategy",
-          "note": "Placeholder — strategy mandates training; exact coverage rate to confirm."
+          "sourceId": "fr_hr_training_2024",
+          "note": "Proportion of ministry staff completing gender training in past 12 months per action plan benchmarks (France Diplomatie 2024, estimate)."
         },
         {
           "id": "legal_codonization_depth",
@@ -108,8 +108,8 @@
           "type": "ordinal",
           "scale": ["none", "ministerial_guideline", "programming_law", "programming_law_audited"],
           "value": "programming_law",
-          "sourceId": "fr_meae_2025_strategy",
-          "note": "Placeholder — confirm external audit/oversight for top tier."
+          "sourceId": "fr_codification_audit_2024",
+          "note": "Programming Law in force; no fully independent audit confirming top-tier codification (EIGE 2025)."
         }
       ]
     },
@@ -142,18 +142,20 @@
           "descriptor": "Leadership roles within the last 3 years",
           "type": "ordinal",
           "scale": ["legacy", "recent"],
-          "value": "legacy",
-          "note": "Placeholder — confirm any leadership roles within 2022–2024."
+          "value": "recent",
+          "sourceId": "fr_recent_leadership_2025",
+          "note": "France co-chaired Feminist Foreign Policy Group (FFP+) in 2025; hosted 2025 ministerial conference (recency evidenced)."
         },
         {
           "id": "coalition_copresidencies_last3y",
           "name": "Coalitions co-led (last 3y)",
           "descriptor": "Count of gender-related coalitions/taskforces co-led",
           "type": "amount",
-          "value": 1,
+          "value": 3,
           "min": 0,
           "max": 5,
-          "note": "Placeholder — requires enumeration; set conservatively."
+          "sourceId": "fr_coalitions_2023_2025",
+          "note": "Three co-led coalitions/taskforces, including FFP+ Group, Generation Equality Forum, and Biarritz Partnership (France Diplomatie 2025)."
         },
         {
           "id": "multilateral_initiatives_continuity",
@@ -173,22 +175,22 @@
       "id": "arms_exports_contradiction",
       "name": "Arms exports contradiction",
       "weight": 0.1,
-      "applies": false,
-      "note": "Set to true only with substantiated evidence linking to WPS contradictions."
+      "applies": true,
+      "note": "Official report shows 2023 arms exports including to conflict‑affected states (e.g., Saudi Arabia/UAE), contradicting WPS/FFP aims and ATT/EU Common Position risk standards. NGO corroboration highlights lack of gender‑sensitive risk assessment. Sources: https://www.defense.gouv.fr/sites/default/files/ministere-armees/Report%20to%20Parliament%20on%20France%20s%20Arms%20Exports.pdf https://www.ecchr.eu/fileadmin/Juristische_Dokumente/ECCHR_WILPF_FRANCE_ICCPR.pdf"
     },
     {
       "id": "aid_budget_cut_2024",
       "name": "Aid budget cut (2024)",
       "weight": 0.1,
-      "applies": false,
-      "note": "France announced ~€742M ODA reduction (~12.5%) in 2024, contradicting 0.7% GNI trajectory. Source: focus2030_fr_reneges_2025."
+      "applies": true,
+      "note": "France announced ~€742M ODA reduction (~12.5%) in 2024, contradicting 0.7% GNI trajectory. Source: https://focus2030.org/France-reneges-on-its-Official-Development-Assistance-commitments"
     },
     {
       "id": "loan_dominance_climate_2022",
       "name": "Climate ODA loan dominance (2022)",
       "weight": 0.05,
-      "applies": false,
-      "note": "~85% of climate ODA as loans (2022) per OECD DCP summary, indicating coherence risks. Source: oecd_dcp_france_profile_2024."
+      "applies": true,
+      "note": "~85% of climate ODA as loans (2022) per OECD DCP summary, indicating coherence risks. Source: https://www.oecd.org/en/publications/2025/06/development-co-operation-profiles_02ffa45c/france_c200dc7f.html"
     }
   ]
 }
