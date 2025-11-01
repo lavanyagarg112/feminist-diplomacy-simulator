@@ -69,7 +69,10 @@ export default function ComparePage() {
           <div className="text-sm text-slate-700">Positive = at/above target</div>
         </div>
         <PillarDeltaStrip deltas={deltas} />
-        <div className="mt-2 text-xs text-slate-600">Tip: Start with the red gaps. “See fix” opens Prescriptions with a relevant preset.</div>
+        <div className="mt-2 text-xs text-slate-600">
+          Tip: Start with the red gaps. “See fix” opens Prescriptions with a
+          curated preset for that pillar (not an optimizer).
+        </div>
       </div>
 
       <div id="next" className="rounded border bg-white p-4">

@@ -156,6 +156,10 @@ export default function PrescriptionsPage() {
           Explore evidence‑based policy mixes. Each preset tweaks indicators toward realistic targets. Replace placeholders
           only with verified values and add sources when enabling penalties.
         </p>
+        <p className="mt-1 max-w-3xl text-sm text-slate-700">
+          Recommendations come from Compare’s per‑pillar gaps (curated per pillar, not an optimizer). Lift is recomputed using the same metric:
+          weighted pillars (Resources 0.4, Institutional Depth 0.35, Norm‑Setting 0.25) and current penalties.
+        </p>
       </div>
       <div className="grid gap-4 md:grid-cols-3">
         {presets.map((p) => (
