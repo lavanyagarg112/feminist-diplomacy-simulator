@@ -33,7 +33,7 @@ export default function Sensitivity({
   return (
     <div className="grid gap-3">
       <div className="flex items-center gap-2 text-sm">
-        <span>Outcome:</span>
+        <span>Focus outcome:</span>
         <select
           className="rounded border px-2 py-1"
           value={outcome}

@@ -4,6 +4,7 @@ import PillarGauges from "@/components/PillarGauges";
 import fr from "@/data/indicators.fr.json" assert { type: "json" };
 import targetsData from "@/data/targets.json" assert { type: "json" };
 import { computeCredibility } from "@/lib/credibility";
+import Link from "next/link";
 
 export default function SimulatorSnapshot() {
   const res = computeCredibility(fr as any);
@@ -31,6 +32,10 @@ export default function SimulatorSnapshot() {
           <h2 className="mb-2 font-semibold">Credibility Snapshot</h2>
           <CredibilityPanel />
         </div>
+      </div>
+      <div className="flex flex-wrap gap-2 text-xs">
+        <Link href="/simulator/compare" className="rounded border border-slate-900 bg-slate-900 px-3 py-1 text-white hover:bg-slate-800">Compare</Link>
+        <Link href="/simulator/drivers" className="rounded border px-3 py-1 hover:bg-slate-50">Drivers & Trade‑offs</Link>
       </div>
     </section>
   );

@@ -36,6 +36,7 @@ export default function BriefingPage() {
       <SectionIntro
         title="How credible is France’s leadership?"
         subtitle="A concise, sourced snapshot with the three pillars, contradictions, and quick context vs Sweden."
+        hint="Start with Compare to see pillar gaps, then explore Drivers & Trade‑offs."
       />
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -51,9 +52,9 @@ export default function BriefingPage() {
           </div>
           <div className="mt-2 text-xs text-slate-600">Badges indicate whether each pillar is on track vs its target. Coverage is about sources, not the score.</div>
           <div className="mt-3 flex flex-wrap gap-2 text-xs">
-            <Link href="/simulator/compare" className="rounded border px-3 py-1 hover:bg-slate-50">Compare in detail</Link>
-            <Link href="/details" className="rounded border px-3 py-1 hover:bg-slate-50">See details</Link>
-            <Link href="/simulator/drivers" className="rounded border px-3 py-1 hover:bg-slate-50">Explore scenarios (advanced)</Link>
+            <Link href="/simulator/compare" className="rounded border border-slate-900 bg-slate-900 px-3 py-1 text-white hover:bg-slate-800">Start with Compare</Link>
+            <Link href="/simulator/drivers" className="rounded border px-3 py-1 hover:bg-slate-50">Drivers & Trade‑offs</Link>
+            <Link href="/details" className="rounded border px-3 py-1 hover:bg-slate-50">Details</Link>
           </div>
         </div>
 
@@ -75,9 +76,9 @@ export default function BriefingPage() {
           </div>
           <div className="mt-2 text-xs text-slate-600">Credibility {seRes.credibility}/100</div>
           <div className="mt-3">
-            <Link href="/simulator/compare" className="rounded border px-3 py-1 text-xs hover:bg-slate-50">Open Compare</Link>
+            <Link href="/simulator/compare" className="rounded border border-slate-900 bg-slate-900 px-3 py-1 text-xs text-white hover:bg-slate-800">Open Compare</Link>
           </div>
-        </div>
+      </div>
 
         <div className="rounded-xl border bg-white p-5">
           <h3 className="m-0 text-base font-semibold">Evidence highlights</h3>

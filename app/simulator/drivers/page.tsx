@@ -175,6 +175,7 @@ export default function DriversPage() {
         <div className="rounded border bg-white p-4">
           <h2 className="mb-2 font-semibold">Projected outcomes</h2>
           <OutcomeChart data={outcomes} baseline={base} />
+          <div className="mt-2 text-xs text-slate-600">Backlash is undesirable; higher values are worse.</div>
         </div>
 
         <div className="rounded border bg-white p-4 text-sm">
@@ -233,7 +234,7 @@ export default function DriversPage() {
 
         <div className="rounded border bg-white p-4">
           <h2 className="mb-2 font-semibold">Trade-off highlights</h2>
-          <Narrative levers={levers} outcomes={outcomes} />
+          <Narrative levers={levers} outcomes={outcomes} baseline={base} />
         </div>
       </div>
     </section>
