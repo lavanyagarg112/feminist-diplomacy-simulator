@@ -133,11 +133,11 @@ export default function CredibilityPanel({ compact = false, country: forcedCount
           <a className="ml-2 underline" href="/details#methodology" target="_self">How this is calculated</a>
         </div>
         {activePenalties.length > 0 && (
-          <div className="mt-3 rounded border border-amber-200 bg-amber-50 p-3">
+          <div className="mt-3 rounded border border-amber-200 bg-amber-50 p-3 force-wrap">
             <div className="text-xs font-medium text-amber-800">Contradictions applied</div>
-            <ul className="mt-1 space-y-1 text-xs text-amber-900">
+            <ul className="mt-1 space-y-1 text-xs text-amber-900 break-words">
               {activePenalties.map((p) => (
-                <li key={p.id}>
+                <li key={p.id} className="break-words">
                   <span className="font-medium">{p.name}</span>
                   <span className="ml-1 opacity-80">(−{Math.round(p.weight * 100)}%)</span>
                   {p.note && <span className="ml-2">— {p.note}</span>}

@@ -16,6 +16,9 @@ export default function HeaderNav() {
             <Link href="/briefing" className="text-sm hover:underline">
               Briefing
             </Link>
+            <Link href="/info" className="text-sm hover:underline">
+              Info
+            </Link>
             <Link href="/details" className="text-sm hover:underline">
               Details
             </Link>
@@ -53,6 +56,9 @@ export default function HeaderNav() {
           <Link href="/briefing" className="rounded border px-3 py-2 text-sm hover:bg-slate-50" onClick={() => setOpen(false)}>
             Briefing
           </Link>
+          <Link href="/info" className="rounded border px-3 py-2 text-sm hover:bg-slate-50" onClick={() => setOpen(false)}>
+            Info
+          </Link>
           <Link href="/details" className="rounded border px-3 py-2 text-sm hover:bg-slate-50" onClick={() => setOpen(false)}>
             Details
           </Link>
@@ -68,4 +74,3 @@ export default function HeaderNav() {
     </nav>
   );
 }
-

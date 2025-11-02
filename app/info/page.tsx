@@ -24,7 +24,8 @@ export default function InfoSession() {
           <a className="mr-4 underline" href="#fr-start">How France Started</a>
           <a className="mr-4 underline" href="#se-shift">Sweden’s Shift</a>
           <a className="mr-4 underline" href="#pillars">Three Pillars</a>
-          <a className="underline" href="#refs">References</a>
+          <a className="mr-4 underline" href="#refs">References</a>
+          <a className="underline" href="/details">Details</a>
         </nav>
       </header>
       {/* Snapshot panel brings the indicators to the info page */}
@@ -98,10 +99,7 @@ export default function InfoSession() {
           ; and official statements (2022) discontinuing the label.
         </li>
       </ul>
-      <p className="mt-2 text-sm text-slate-600">
-        Notes: Where placeholders remain, they are labeled in tooltips and the methodology page. Replace with verified
-        figures before final submission.
-      </p>
+      {/* Note removed per request */}
     </article>
   );
 }
