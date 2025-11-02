@@ -49,10 +49,10 @@
         {
           "id": "discontinued_label",
           "name": "FFP label discontinued (2022)",
-          "descriptor": "Official discontinuation announced in 2022",
+          "descriptor": "Discontinuation discussed and analyzed in peer‑reviewed account (International Affairs, 2024)",
           "type": "binary",
           "value": true,
-          "sourceId": "sweden_discontinue_2022"
+          "sourceId": "ia_sweden_ffp_undone_2024"
         }
       ]
     },
