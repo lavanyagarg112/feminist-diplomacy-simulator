@@ -101,7 +101,7 @@ Suggested Essay Framing (optional prompts)
 - Reflect on the shift from presence to depth (adding stricter indicators), the choice to avoid 100% claims, and how coverage metrics are separated from performance.
 - Acknowledge limitations (normative choices in indicators/weights; data lags; placeholders) and note future work (per‑indicator weights; richer contradictions; verified audits and recency checks).
 
-File Map for Agents
+File Map
 - Data: `data/indicators.fr.json`, `data/indicators.se.json`, `data/targets.json`, `data/sources.json`
 - Logic: `lib/normalize.ts`, `lib/credibility.ts`, `lib/scoring.ts`
 - UI: `components/CredibilityPanel.tsx`, `components/PillarGauges.tsx`
