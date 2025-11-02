@@ -6,6 +6,8 @@ An interactive, research‑anchored website analyzing the credibility of France�
 
 - Project: https://feminist-diplomacy-simulator.vercel.app
 
+**Note: this project has been archived for submission purposes, and may be unarchived after the project has been graded, in order to facilitate future improvements.**
+
 ## Research Question
 
 - How credible is France’s leadership in global feminist diplomacy following Sweden’s withdrawal, and what contradictions exist between official commitments and practical implementation across funding, institutional depth, and international influence?
@@ -76,3 +78,4 @@ An interactive, research‑anchored website analyzing the credibility of France�
 
 - Run `npm run lint` and ensure `npm run build` passes before PRs.
 - Prefer small, focused PRs with screenshots/GIFs for UI changes.
+- **Note: this project has been archived for submission purposes, and may be unarchived after the project has been graded, in order to facilitate future improvements.**
