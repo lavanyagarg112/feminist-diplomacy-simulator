@@ -5,6 +5,7 @@ An interactive, researchâ€‘anchored website analyzing the credibility of Franceâ
 ## Live Links
 
 - Project: https://feminist-diplomacy-simulator.vercel.app
+- Notable folders: `data/`, `lib/`, `research/`
 
 **Note: this project has been archived for submission purposes, and may be unarchived after the project has been graded, in order to facilitate future improvements.**
 
