@@ -47,12 +47,13 @@ An interactive, research‑anchored website analyzing the credibility of France�
 - Dev: `npm run dev` → http://localhost:3000 (redirects to `/briefing`)
 - Build/Serve: `npm run build` then `npm start`
 
-## Key Paths
+## Key Paths in this codebase
 
 - App pages: `app/` (e.g., `app/briefing`, `app/info`, `app/details`, `app/simulator`)
 - Components: `components/` (e.g., `CredibilityPanel`, `PillarGauges`, `TabNav`)
 - Core logic: `lib/` (`credibility.ts`, `normalize.ts`, `scoring.ts`)
 - Data: `data/` (`sources.json`, `indicators.fr.json`, `indicators.se.json`, `targets.json`)
+- Research: `research/`
 
 ## How It Works
 
